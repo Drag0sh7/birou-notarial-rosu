@@ -1,54 +1,220 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans&display=swap');
-
+/* Global styles */
 body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #f9fbfc;
-  color: #333;
-  line-height: 1.6;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: url("./assets/office-bg.jpg") no-repeat center center fixed;
+  background-size: cover;
 }
 
+/* Typography defaults */
 h1,
 h2,
 h3,
-h4 {
-  font-family: 'Merriweather', serif;
+h4,
+h5,
+p {
+  margin-top: 0;
 }
 
-a {
-  text-decoration: none;
-  color: #007bff;
-  transition: color 0.3s ease;
+h1 {
+  font-size: 3em;
+  margin-bottom: 0.2em;
 }
 
-a:hover {
-  color: #00bfa6;
+h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+  text-align: center;
 }
 
-.card {
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-  background-color: #fff;
-  transition: transform 0.3s ease;
+h3 {
+  font-size: 1.3em;
+  margin: 0.5em 0;
 }
 
+p {
+  margin: 0 0 1em 0;
+  line-height: 1.5;
+}
 
-img {
+/* Glassmorphism panels */
+.glass-light {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 10px;
-  transition: transform 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  color: #000;
+  padding: 40px;
+  margin: 40px auto;
+  max-width: 1200px;
 }
 
-img:hover {
-  transform: scale(1.02);
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  color: #fff;
 }
 
-.section-title {
-  font-weight: 700;
-  color: #007bff;
-  margin-bottom: 1rem;
+/* Top navigation bar */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
-.card:hover {
-  background-color: #e6f7f6;
-  transform: scale(1.02);
+.top-nav .logo a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.top-nav nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 1em;
+  position: relative;
+}
+
+.top-nav nav a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  transition: width 0.3s;
+}
+
+.top-nav nav a:hover::after {
+  width: 100%;
+}
+
+/* Hero section specific */
+.hero-section {
+  text-align: center;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  /* Override default margin for full-width */
+}
+
+.hero-section h1 {
+  /* already defined in global h1 */
+}
+
+.hero-section p {
+  font-size: 1.2em;
+  max-width: 800px;
+  margin: 0 auto 1em auto;
+}
+
+.hero-section .btn {
+  margin-top: 20px;
+}
+
+/* About section layout */
+.about-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+.about-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Services section layout */
+.services-section p {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+}
+
+.services-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.service-card {
+  flex: 1 1 30%;
+  min-width: 280px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.service-card img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-card h3 {
+  margin-top: 0.5em;
+}
+
+/* Contact section */
+.contact-section p {
+  margin: 0.2em 0;
+}
+
+/* Buttons and links */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #000;
 }
