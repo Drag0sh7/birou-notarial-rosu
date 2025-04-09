@@ -1,0 +1,119 @@
+.contracte-container {
+    max-width: 960px;
+    margin: 50px auto;
+    padding: 40px 30px;
+    background: linear-gradient(to right, #e8f4ff, #f5fff9);
+    border-radius: 14px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: #2f3d4c;
+}
+
+.contracte-title {
+    font-size: 2.7rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0b5a7d;
+}
+
+.contracte-description {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 40px;
+    line-height: 1.8;
+    color: #455d6c;
+}
+
+.contracte-section {
+    background: #fff;
+    border-left: 6px solid #009688;
+    border-radius: 10px;
+    padding: 25px 30px;
+    margin-bottom: 35px;
+    box-shadow: 0 5px 15px rgba(0, 150, 136, 0.08);
+}
+
+.contracte-section h2 {
+    font-size: 1.6rem;
+    color: #0a6464;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.contracte-section ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.contracte-section li {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    line-height: 1.7;
+}
+
+.contracte-section p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/* Calculator Styling */
+.calculator-wrap {
+    background-color: #e3f7f5;
+    border-left-color: #00bfa5;
+}
+
+.calculator-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.calculator-form input {
+    padding: 12px 15px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: 0.3s ease;
+}
+
+.calculator-form input:focus {
+    border-color: #009688;
+    background-color: #f8fdfd;
+    outline: none;
+}
+
+.calculator-form p {
+    font-size: 1.1rem;
+}
+
+#contract-output {
+    font-weight: bold;
+    color: #007965;
+    margin-left: 8px;
+}
+
+.note {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contracte-container {
+        padding: 25px 15px;
+    }
+
+    .contracte-title {
+        font-size: 2rem;
+    }
+
+    .calculator-form {
+        flex-direction: column;
+    }
+}
