@@ -1,59 +1,59 @@
-.contracte-container {
-    max-width: 960px;
+.testamente-container {
+    max-width: 1000px;
     margin: 50px auto;
     padding: 40px 30px;
-    background: linear-gradient(to right, #e8f4ff, #f5fff9);
+    background: linear-gradient(to right, #f1f7ff, #fafff9);
     border-radius: 14px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     font-family: 'Segoe UI', Tahoma, sans-serif;
-    color: #2f3d4c;
+    color: #2b3d4d;
 }
 
-.contracte-title {
-    font-size: 2.7rem;
-    font-weight: bold;
+.testamente-title {
+    font-size: 2.6rem;
+    font-weight: 700;
     text-align: center;
+    color: #00557b;
     margin-bottom: 20px;
-    color: #0b5a7d;
 }
 
-.contracte-description {
+.testamente-description {
     font-size: 1.1rem;
     text-align: center;
     margin-bottom: 40px;
-    line-height: 1.8;
-    color: #455d6c;
+    line-height: 1.7;
+    color: #465d6c;
 }
 
-.contracte-section {
-    background: #fff;
-    border-left: 6px solid #009688;
+.testamente-section {
+    background: #ffffff;
+    border-left: 5px solid #2f9e90;
     border-radius: 10px;
     padding: 25px 30px;
-    margin-bottom: 35px;
-    box-shadow: 0 5px 15px rgba(0, 150, 136, 0.08);
+    margin-bottom: 40px;
+    box-shadow: 0 5px 15px rgba(0, 137, 123, 0.08);
 }
 
-.contracte-section h2 {
+.testamente-section h2 {
     font-size: 1.6rem;
-    color: #0a6464;
+    color: #0a7268;
     margin-bottom: 15px;
     font-weight: 600;
 }
 
-.contracte-section ul {
+.testamente-section ul {
     list-style: disc;
     padding-left: 20px;
     margin-bottom: 15px;
 }
 
-.contracte-section li {
+.testamente-section li {
     font-size: 1.05rem;
     margin-bottom: 8px;
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
-.contracte-section p {
+.testamente-section p {
     font-size: 1.05rem;
     line-height: 1.7;
     margin-bottom: 15px;
@@ -61,8 +61,8 @@
 
 /* Calculator Styling */
 .calculator-wrap {
-    background-color: #e3f7f5;
-    border-left-color: #00bfa5;
+    background-color: #e8fdf7;
+    border-left-color: #00a88f;
 }
 
 .calculator-form {
@@ -82,7 +82,7 @@
 }
 
 .calculator-form input:focus {
-    border-color: #009688;
+    border-color: #00a88f;
     background-color: #f8fdfd;
     outline: none;
 }
@@ -91,7 +91,7 @@
     font-size: 1.1rem;
 }
 
-#contract-output {
+#testament-output {
     font-weight: bold;
     color: #007965;
     margin-left: 8px;
@@ -104,12 +104,12 @@
 }
 
 @media (max-width: 768px) {
-    .contracte-container {
-        padding: 25px 15px;
+    .testamente-container {
+        padding: 30px 20px;
     }
 
-    .contracte-title {
-        font-size: 2rem;
+    .testamente-title {
+        font-size: 2.2rem;
     }
 
     .calculator-form {
