@@ -103,7 +103,6 @@
     font-style: italic;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .succesiuni-container {
         padding: 30px 20px;

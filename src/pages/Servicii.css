@@ -1,75 +1,110 @@
-.servicii-container {
-    background-color: #f5f9fb;
-    border-radius: 10px;
+.glass-servicii-wrapper {
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background: url("../assets/office-bg.jpg") no-repeat center center fixed;
+    background-size: cover;
 }
 
-.servicii-title {
-    font-size: 2.5rem;
+.glass-servicii-container {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+    padding: 50px 40px;
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+.glass-servicii-title {
+    font-size: 2.8rem;
     font-weight: 700;
+    margin-bottom: 10px;
     color: #004b8d;
-    text-shadow: 1px 1px 1px #cce0f0;
+    text-shadow: 1px 1px 2px rgba(0, 75, 141, 0.2);
 }
 
-.servicii-subtitle {
+.glass-servicii-subtitle {
     font-size: 1.2rem;
-    color: #4e6b80;
+    color: #333;
+    margin-bottom: 30px;
 }
 
-.service-card {
-    transition: all 0.3s ease;
-    display: block;
+.glass-servicii-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
 }
 
-.card-effect {
-    background: linear-gradient(145deg, #ffffff, #e9f3f9);
-    border: 2px solid #cceeff;
-    transition: transform 0.3s, box-shadow 0.3s;
+.glass-servicii-card {
+    text-decoration: none;
+    flex: 1 1 250px;
+    max-width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card-effect:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 20px rgba(0, 75, 141, 0.15);
+.glass-servicii-card-inner {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 30px 20px;
+    box-shadow: 0 4px 20px rgba(0, 75, 141, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-servicii-card-inner:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 30px rgba(0, 75, 141, 0.15);
     border-color: #007bff;
 }
 
-.text-blue-green {
+.glass-servicii-card h4 {
     color: #007bff;
+    font-weight: 600;
+    margin: 0;
+    font-size: 1.2rem;
 }
 
-.text-blue-green:hover {
+.glass-servicii-card h4:hover {
     color: #00aa8f;
 }
 
-.servicii-container {
-    background-color: #f5f9fb;
-    border-radius: 10px;
-    padding: 40px;
-    margin: 20px auto;
-    max-width: 800px;
-}
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+    .glass-servicii-container {
+        padding: 30px 20px;
+    }
 
-.servicii-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #004b8d;
-    text-shadow: 1px 1px 1px #cce0f0;
-    margin-bottom: 20px;
-}
+    .glass-servicii-title {
+        font-size: 2rem;
+    }
 
-.servicii-description {
-    font-size: 1.1rem;
-    color: #4e6b80;
-    margin-bottom: 20px;
-}
+    .glass-servicii-subtitle {
+        font-size: 1rem;
+    }
 
-.servicii-list {
-    list-style-type: disc;
-    margin-left: 20px;
-    margin-bottom: 20px;
-}
+    .glass-servicii-grid {
+        gap: 15px;
+    }
 
-.servicii-list li {
-    font-size: 1.1rem;
-    color: #4e6b80;
-    margin-bottom: 10px;
+    .glass-servicii-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .glass-servicii-card-inner {
+        padding: 20px 15px;
+    }
+
+    .glass-servicii-card h4 {
+        font-size: 1rem;
+    }
 }

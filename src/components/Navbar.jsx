@@ -1,19 +1,32 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './Navbar.css';
 
 export default function Navbar() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
-            <div className="container">
-                <Link className="navbar-brand fw-bold" to="/">Notariat Roșu Elisabeta</Link>
-                <div className="collapse navbar-collapse">
-                    <ul className="navbar-nav ms-auto">
-                        <li className="nav-item"><Link to="/" className="nav-link">Acasă</Link></li>
-                        <li className="nav-item"><Link className="nav-link" to="/servicii">Servicii</Link></li>
-                        <li className="nav-item"><Link to="/profil" className="nav-link">Profil</Link></li>
-                        <li className="nav-item"><Link to="/contact" className="nav-link">Contact</Link></li>
+        <nav className="navbar-glass navbar-fixed">
+            <div className="navbar-container">
+                <Link className="navbar-brand" to="/">
+                    Notariat Roșu Elisabeta
+                </Link>
 
+                <button className="burger" onClick={toggleMenu}>
+                    <span className={`bar ${isOpen ? 'open' : ''}`}></span>
+                    <span className={`bar ${isOpen ? 'open' : ''}`}></span>
+                    <span className={`bar ${isOpen ? 'open' : ''}`}></span>
+                </button>
 
-                    </ul>
+                <div className={`navbar-links ${isOpen ? 'show' : ''}`}>
+                    <Link to="/" className="nav-link" onClick={() => setIsOpen(false)}>Acasă</Link>
+                    <Link to="/servicii" className="nav-link" onClick={() => setIsOpen(false)}>Servicii</Link>
+                    <Link to="/profil" className="nav-link" onClick={() => setIsOpen(false)}>Profil</Link>
+                    <Link to="/contact" className="nav-link" onClick={() => setIsOpen(false)}>Contact</Link>
                 </div>
             </div>
         </nav>

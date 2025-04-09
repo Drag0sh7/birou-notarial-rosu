@@ -1,5 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CookieConsent from 'react-cookie-consent';
+import PoliticaCookie from './PoliticaCookie';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -21,7 +23,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <div className="container mt-4">
+      <main className="container mt-4" style={{ paddingTop: '60px' }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profil" element={<ProfilNotar />} />
@@ -34,9 +36,57 @@ function App() {
           <Route path="/servicii/procuri" element={<Procuri />} />
           <Route path="/servicii/declaratii" element={<Declaratii />} />
           <Route path="/servicii/consiliere-investitori" element={<ConsiliereInvestitori />} />
+          <Route path="/politica-cookie" element={<PoliticaCookie />} />
         </Routes>
-      </div>
+      </main>
       <Footer />
+
+      {/* ✅ Cookie banner */}
+      <CookieConsent
+        location="bottom"
+        buttonText="Accept"
+        cookieName="birouNotarialCookieConsent"
+        style={{
+          background: 'rgba(0, 0, 0, 0.75)',
+          color: '#fff',
+          fontSize: '16px',
+          padding: '20px',
+          backdropFilter: 'blur(10px)',
+          display: 'flex',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+        }}
+        buttonStyle={{
+          backgroundColor: '#00c2a8',
+          color: '#fff',
+          fontWeight: 'bold',
+          fontSize: '16px',
+          padding: '10px 20px',
+          borderRadius: '8px',
+          border: 'none',
+          marginTop: '10px',
+        }}
+        contentStyle={{
+          flex: '1 1 70%',
+          marginRight: '20px',
+          minWidth: '250px',
+        }}
+        buttonWrapperClasses="cookie-button-wrapper"
+        expires={150}
+      >
+        Acest site folosește cookie-uri pentru a îmbunătăți experiența utilizatorului.{" "}
+        <a
+          href="/politica-cookie"
+          style={{
+            color: '#00c2a8',
+            textDecoration: 'underline',
+            marginLeft: '6px',
+          }}
+        >
+          Află mai multe
+        </a>
+      </CookieConsent>
     </Router>
   );
 }

@@ -1,0 +1,66 @@
+/* Glassmorphism layout like the homepage */
+.cookie-policy {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 50px;
+    margin: 60px auto;
+    max-width: 1000px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    color: #1a1a1a;
+}
+
+.cookie-title {
+    color: #007bff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.cookie-lead {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.cookie-subtitle {
+    font-size: 1.3rem;
+    color: #004b8d;
+    font-weight: 600;
+    margin-top: 30px;
+}
+
+.cookie-list {
+    margin-left: 20px;
+    padding-left: 10px;
+    list-style: disc;
+}
+
+.cookie-list li {
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+}
+
+.cookie-update {
+    font-size: 0.95rem;
+    text-align: right;
+    font-style: italic;
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 768px) {
+    .cookie-policy {
+        padding: 25px;
+        margin: 20px;
+    }
+
+    .cookie-title {
+        font-size: 2rem;
+    }
+
+    .cookie-subtitle {
+        font-size: 1.15rem;
+    }
+}
