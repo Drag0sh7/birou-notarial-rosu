@@ -1,3 +1,5 @@
+// ✅ FINAL Home.jsx with background image (office-bg.jpg) covering entire page, behind navbar and all
+
 import React from 'react';
 import {
   Box,
@@ -22,17 +24,7 @@ export default function Home() {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
-    <Box
-      sx={{
-        minHeight: '100vh',
-        backgroundImage: `linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,0.9)), url(${require('../assets/office-bg.jpg')})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-        color: '#fff',
-        pb: 10,
-      }}
-    >
+    <Box sx={{ color: '#fff', pb: 10 }}>
       {/* HERO Section - Fullscreen */}
       <Box
         sx={{
@@ -128,20 +120,19 @@ export default function Home() {
                 clienților soluții eficiente, corecte și personalizate, într-un mediu primitor și profesionist.
               </Typography>
             </Grid>
-            <Grid item xs={12} md={6}>
-              <Card sx={{ borderRadius: 4, boxShadow: '0 4px 16px rgba(0,0,0,0.3)' }}>
-                <CardMedia
-                  component="img"
-                  image={img3}
-                  alt="Interior birou"
-                  sx={{
-                    height: isMobile ? 220 : 300,
-                    width: '100%',
-                    objectFit: 'cover',
-                  }}
-                />
-              </Card>
-            </Grid>
+            <Card sx={{ borderRadius: 4, boxShadow: '0 4px 16px rgba(0,0,0,0.3)' }}>
+              <CardMedia
+                component="img"
+                image={img3}
+                alt="Interior birou"
+                sx={{
+                  height: isMobile ? 220 : 300,
+                  width: '100%',
+                  objectFit: 'cover',
+                }}
+              />
+
+            </Card>
           </Grid>
         </Box>
       </Container>
@@ -177,7 +168,7 @@ export default function Home() {
             Oferim o gamă completă de servicii notariale pentru persoane fizice și juridice.
           </Typography>
 
-          <Grid container spacing={4}>
+          <Grid container spacing={4} justifyContent="center">
             {[
               {
                 title: 'Autentificări și Legalizări',
@@ -195,7 +186,7 @@ export default function Home() {
                 image: signed,
               },
             ].map((item, i) => (
-              <Grid item xs={12} md={4} key={i}>
+              <Grid item xs={12} sm={6} md={4} key={i}>
                 <Card
                   sx={{
                     height: '100%',
