@@ -42,10 +42,6 @@ const ServiceCard = styled(Card)(({ theme }) => ({
         filter: 'brightness(1.1)',
         boxShadow: '0 12px 30px rgba(255,215,0,0.7)',
     },
-    // Makes the service title glow on hover:
-    '&:hover .service-title': {
-        textShadow: '0 0 10px rgba(255,215,0,0.8)',
-    },
     '& .MuiCardContent-root': {
         padding: theme.spacing(4),
     },

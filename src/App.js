@@ -31,10 +31,7 @@ const theme = createTheme({
     text: { primary: '#fff', secondary: '#ccc' },
   },
   typography: {
-    fontFamily: 'Poppins, Arial, sans-serif',
-    h1: { fontWeight: 700, fontSize: '3rem', color: '#fff' },
-    h2: { fontWeight: 600, fontSize: '2.5rem', color: '#fff' },
-    body1: { fontSize: '1rem', color: '#fff' },
+    fontFamily: '"EB Garamond", serif',
   },
 });
 

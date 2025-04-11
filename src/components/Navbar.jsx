@@ -26,6 +26,10 @@ export default function Navbar() {
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const location = useLocation();
 
+    const garamondFont = {
+        fontFamily: '"Lato", monospace',
+    };
+
     const navLinks = [
         { title: 'Acasă', path: '/' },
         { title: 'Servicii', path: '/servicii' },
@@ -37,13 +41,11 @@ export default function Navbar() {
 
     useEffect(() => {
         if (isMobile) return;
-
         const handleScroll = () => {
             const currentY = window.scrollY;
             setVisible(currentY < lastScrollY || currentY < 50);
             setLastScrollY(currentY);
         };
-
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, [lastScrollY, isMobile]);
@@ -74,7 +76,6 @@ export default function Navbar() {
             }}
         >
             <Toolbar sx={{ justifyContent: 'center' }}>
-                { }
                 {!isMobile ? (
                     <Box sx={pillStyle}>
                         <Typography
@@ -82,6 +83,7 @@ export default function Navbar() {
                             component={RouterLink}
                             to="/"
                             sx={{
+                                ...garamondFont,
                                 textDecoration: 'none',
                                 color: '#111',
                                 fontWeight: 700,
@@ -99,11 +101,12 @@ export default function Navbar() {
                                         component={RouterLink}
                                         to={link.path}
                                         sx={{
+                                            ...garamondFont,
                                             color: isActive ? '#2B3A67' : '#111',
                                             fontWeight: isActive ? 700 : 500,
                                             borderBottom: isActive ? '2px solid #2B3A67' : 'none',
                                             textTransform: 'none',
-                                            fontSize: '1rem',
+                                            fontSize: '1.1rem',
                                             '&:hover': {
                                                 color: '#3C4F7E',
                                                 transform: 'scale(1.07)',
@@ -118,7 +121,6 @@ export default function Navbar() {
                         </Box>
                     </Box>
                 ) : (
-
                     <Box
                         sx={{
                             width: '100%',
@@ -133,6 +135,7 @@ export default function Navbar() {
                             component={RouterLink}
                             to="/"
                             sx={{
+                                ...garamondFont,
                                 textDecoration: 'none',
                                 color: '#fff',
                                 fontWeight: 700,
@@ -148,7 +151,6 @@ export default function Navbar() {
                 )}
             </Toolbar>
 
-            { }
             <Drawer
                 anchor="top"
                 open={drawerOpen}
@@ -198,6 +200,7 @@ export default function Navbar() {
                                             primary={link.title}
                                             primaryTypographyProps={{
                                                 sx: {
+                                                    ...garamondFont,
                                                     color: isActive ? '#FFD700' : '#fff',
                                                     fontSize: '1.8rem',
                                                     fontWeight: isActive ? 700 : 500,

@@ -16,6 +16,7 @@ export default function Footer() {
   return (
     <Box
       component="footer"
+      id="footer"
       sx={{
         background: 'rgba(255, 255, 255, 0.15)',
         backdropFilter: 'blur(20px)',
