@@ -4,23 +4,45 @@ import {
     Typography,
     Grid,
     Card,
-    CardActionArea,
     CardContent,
     useTheme,
     useMediaQuery,
     styled,
+    CardActionArea,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import bgImage from '../assets/office-bg.jpg';
 
-// Main container with continuous pulse animation (the "big card").
+/** Create a 'nuclear' style override to remove outlines, borders, 
+    debug lines, and pseudo-elements that might draw lines. */
+const noLinesStyle = {
+    // Remove any default border, box shadow, or outline from all children.
+    '*': {
+        border: 'none !important',
+        boxShadow: 'none !important',
+        outline: 'none !important',
+        backgroundImage: 'none !important',
+    },
+    // Remove pseudo-elements that could draw lines—use quotes for content.
+    '& *::before, & *::after': {
+        content: '"" !important',
+        border: 'none !important',
+        boxShadow: 'none !important',
+    },
+    // Also remove any potential MUI Grid debug backgrounds or borders.
+    '& [class*="debug"]': {
+        border: 'none !important',
+        background: 'none !important',
+    },
+};
+
+// Main container with a pulse animation.
 const MainContainer = styled(Box)(({ theme }) => ({
     background: 'rgba(0, 0, 0, 0.55)',
     backdropFilter: 'blur(12px)',
     borderRadius: '12px',
     padding: theme.spacing(4),
     boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
-    // Continuous pulse animation:
     animation: 'pulse 6s infinite',
     '@keyframes pulse': {
         '0%, 100%': { boxShadow: '0 4px 20px rgba(0,0,0,0.5)' },
@@ -28,33 +50,54 @@ const MainContainer = styled(Box)(({ theme }) => ({
     },
 }));
 
-// Individual service cards with a glass-like effect and enhanced hover animation only.
+const ServiceGridContainer = styled(Grid)({
+    listStyle: 'none',
+    margin: 0,
+    padding: 0,
+    '&::before, &::after': { content: 'none' },
+});
+
+// Custom CardActionArea that removes ripple/focus outlines.
+const NoFocusCardActionArea = styled(CardActionArea)({
+    outline: 'none !important',
+    '&:focus, &:active, &:focus-visible': {
+        outline: 'none !important',
+        boxShadow: 'none !important',
+    },
+    '& .MuiTouchRipple-root': {
+        display: 'none !important',
+    },
+});
+
+// Service cards with a modern glass-like design.
 const ServiceCard = styled(Card)(({ theme }) => ({
-    borderRadius: '10px',
-    background: 'rgba(255, 255, 255, 0.1)',
-    backdropFilter: 'blur(4px)',
-    transition: 'transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease',
-    boxShadow: '0 2px 8px rgba(0,0,0,0.4)',
+    borderRadius: '16px',
+    background: 'rgba(255, 255, 255, 0.15)',
+    backdropFilter: 'blur(8px)',
+    border: '1px solid rgba(255,255,255,0.3)',
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
     textDecoration: 'none',
-    // Hover effects only (no continuous animation on the cards themselves):
+    listStyle: 'none',
     '&:hover': {
-        transform: 'scale(1.1)',
-        filter: 'brightness(1.1)',
-        boxShadow: '0 12px 30px rgba(255,215,0,0.7)',
+        transform: 'translateY(-5px)',
+        boxShadow: '0 12px 24px rgba(0,0,0,0.2)',
     },
     '& .MuiCardContent-root': {
-        padding: theme.spacing(4),
+        padding: theme.spacing(3),
     },
 }));
 
-// Service title styling.
-const ServiceTitle = styled(Typography)(({ theme }) => ({
+// Modern styling for the service titles.
+const ServiceTitle = styled(Typography)({
     color: '#FFD700',
-    fontWeight: 600,
-    fontSize: '1.3rem',
+    fontWeight: 700,
+    fontSize: '1.5rem',
     textAlign: 'center',
     transition: 'text-shadow 0.3s ease',
-}));
+    textShadow: '0px 0px 3px rgba(0,0,0,0.6)',
+    letterSpacing: '0.5px',
+});
 
 // Define your services.
 const services = [
@@ -67,8 +110,7 @@ const services = [
     { name: 'Consiliere Investitori', path: '/servicii/consiliere-investitori' },
 ];
 
-// We manually chunk the services into rows: 3 in row1, 3 in row2, remaining in row3.
-// This approach guarantees that the 7th item is on its own row, centered.
+// Manually chunk services into rows: 3 in row1, 3 in row2, remaining in row3.
 const chunkedServices = [
     services.slice(0, 3),  // Row 1
     services.slice(3, 6),  // Row 2
@@ -82,6 +124,7 @@ export default function Servicii() {
     return (
         <Box
             sx={{
+                ...noLinesStyle, // Apply the “nuclear” style override.
                 py: { xs: 8, md: 12 },
                 px: { xs: 2, md: 6 },
                 color: '#fff',
@@ -99,7 +142,7 @@ export default function Servicii() {
                     textAlign="center"
                     mb={3}
                     sx={{
-                        textShadow: '2px 2px 6px rgba(0,0,0,0.6)',
+                        textShadow: '2px 2px 8px rgba(0,0,0,0.6)',
                         fontSize: { xs: '2rem', md: '2.5rem' },
                     }}
                 >
@@ -115,29 +158,42 @@ export default function Servicii() {
                     Oferim o gamă completă de servicii notariale, cu profesionalism, experiență și promptitudine.
                 </Typography>
 
-                {/* Map each "row" of services to its own Grid container for precise layout */}
                 {chunkedServices.map((row, rowIndex) => (
-                    <Grid
+                    <ServiceGridContainer
                         container
                         spacing={4}
                         justifyContent="center"
                         key={rowIndex}
-                        sx={{ marginBottom: rowIndex < chunkedServices.length - 1 ? 4 : 0 }}
+                        sx={{
+                            marginBottom: rowIndex < chunkedServices.length - 1 ? 4 : 0,
+                        }}
                     >
-                        {row.map((service, index) => (
-                            <Grid item xs={12} sm={6} md={4} key={service.name}>
+                        {row.map((service) => (
+                            <Grid
+                                item
+                                xs={12}
+                                sm={6}
+                                md={4}
+                                key={service.name}
+                                sx={{
+                                    listStyle: 'none',
+                                    '&::before, &::after': { content: 'none' },
+                                }}
+                            >
                                 <ServiceCard component={Link} to={service.path}>
-                                    <CardActionArea>
+                                    <NoFocusCardActionArea
+                                        disableRipple
+                                        disableTouchRipple
+                                        disableFocusRipple
+                                    >
                                         <CardContent>
-                                            <ServiceTitle variant="h6" className="service-title">
-                                                {service.name}
-                                            </ServiceTitle>
+                                            <ServiceTitle variant="h6">{service.name}</ServiceTitle>
                                         </CardContent>
-                                    </CardActionArea>
+                                    </NoFocusCardActionArea>
                                 </ServiceCard>
                             </Grid>
                         ))}
-                    </Grid>
+                    </ServiceGridContainer>
                 ))}
             </MainContainer>
         </Box>

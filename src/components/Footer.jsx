@@ -68,8 +68,7 @@ export default function Footer() {
             <Box display="flex" alignItems="center" gap={1} mt={1}>
               <EmailIcon sx={{ color: '#FFD700' }} />
               <Typography variant="body2">
-                elisabeta.rosu12@gmail.com<br />
-                rosu.elisabeta@enp.ro
+                elisabeta.rosu12@gmail.com
               </Typography>
             </Box>
           </Grid>

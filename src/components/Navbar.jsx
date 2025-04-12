@@ -11,17 +11,24 @@ import {
     List,
     ListItem,
     ListItemText,
+    ListItemIcon,
     useMediaQuery,
     useTheme,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import HomeIcon from '@mui/icons-material/Home';
+import BuildIcon from '@mui/icons-material/Build';
+import PersonIcon from '@mui/icons-material/Person';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
 import { motion } from 'framer-motion';
+import ArticleIcon from '@mui/icons-material/Article';
 
 export default function Navbar() {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [visible, setVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [scrolled, setScrolled] = useState(false);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const location = useLocation();
@@ -31,14 +38,15 @@ export default function Navbar() {
     };
 
     const navLinks = [
-        { title: 'Acasă', path: '/' },
-        { title: 'Servicii', path: '/servicii' },
-        { title: 'Profil', path: '/profil' },
-        { title: 'Contact', path: '/contact' },
+        { title: 'Acasă', path: '/', icon: <HomeIcon fontSize="large" /> },
+        { title: 'Servicii', path: '/servicii', icon: <ArticleIcon fontSize="large" /> },
+        { title: 'Profil', path: '/profil', icon: <PersonIcon fontSize="large" /> },
+        { title: 'Contact', path: '/contact', icon: <ContactMailIcon fontSize="large" /> },
     ];
 
     const toggleDrawer = () => setDrawerOpen(!drawerOpen);
 
+    // Desktop scroll effect to hide/show the navbar when scrolling
     useEffect(() => {
         if (isMobile) return;
         const handleScroll = () => {
@@ -49,6 +57,16 @@ export default function Navbar() {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, [lastScrollY, isMobile]);
+
+    // Mobile scroll effect to toggle the background "box" on scroll
+    useEffect(() => {
+        if (!isMobile) return;
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [isMobile]);
 
     const pillStyle = {
         backgroundColor: 'rgba(255,255,255,0.9)',
@@ -128,6 +146,10 @@ export default function Navbar() {
                             display: 'flex',
                             justifyContent: 'space-between',
                             alignItems: 'center',
+                            background: scrolled ? 'rgba(255, 255, 255, 0.9)' : 'transparent',
+                            backdropFilter: scrolled ? 'blur(10px)' : 'none',
+                            borderRadius: scrolled ? '8px' : '0px',
+                            transition: 'background 0.3s ease, backdrop-filter 0.3s ease',
                         }}
                     >
                         <Typography
@@ -137,15 +159,17 @@ export default function Navbar() {
                             sx={{
                                 ...garamondFont,
                                 textDecoration: 'none',
-                                color: '#fff',
+                                color: scrolled ? '#111' : '#fff',
                                 fontWeight: 700,
                                 fontSize: '1.5rem',
                             }}
                         >
                             Notariat Roșu Elisabeta
                         </Typography>
-                        <IconButton onClick={toggleDrawer} sx={{ color: '#fff' }}>
-                            <MenuIcon fontSize="large" />
+                        <IconButton onClick={toggleDrawer} sx={{ color: scrolled ? '#111' : '#fff' }}>
+                            <motion.div animate={{ rotate: drawerOpen ? 90 : 0 }} transition={{ duration: 0.3 }}>
+                                {drawerOpen ? <CloseIcon fontSize="large" /> : <MenuIcon fontSize="large" />}
+                            </motion.div>
                         </IconButton>
                     </Box>
                 )}
@@ -167,17 +191,6 @@ export default function Navbar() {
                     },
                 }}
             >
-                <IconButton
-                    onClick={toggleDrawer}
-                    sx={{
-                        position: 'absolute',
-                        top: 16,
-                        right: 16,
-                        color: '#fff',
-                    }}
-                >
-                    <CloseIcon />
-                </IconButton>
                 <Box sx={{ textAlign: 'center' }}>
                     <List>
                         {navLinks.map((link, index) => {
@@ -196,6 +209,9 @@ export default function Navbar() {
                                         onClick={toggleDrawer}
                                         sx={{ justifyContent: 'center', my: 2 }}
                                     >
+                                        <ListItemIcon sx={{ color: isActive ? '#FFD700' : '#fff', minWidth: '40px' }}>
+                                            {link.icon}
+                                        </ListItemIcon>
                                         <ListItemText
                                             primary={link.title}
                                             primaryTypographyProps={{
