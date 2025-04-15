@@ -16,25 +16,23 @@ import bgImage from '../assets/office-bg.jpg';
 /** Create a 'nuclear' style override to remove outlines, borders, 
     debug lines, and pseudo-elements that might draw lines. */
 const noLinesStyle = {
-    // Remove any default border, box shadow, or outline from all children.
     '*': {
         border: 'none !important',
         boxShadow: 'none !important',
         outline: 'none !important',
         backgroundImage: 'none !important',
     },
-    // Remove pseudo-elements that could draw lines—use quotes for content.
     '& *::before, & *::after': {
-        content: '"" !important',
+        content: '""',
         border: 'none !important',
         boxShadow: 'none !important',
     },
-    // Also remove any potential MUI Grid debug backgrounds or borders.
     '& [class*="debug"]': {
         border: 'none !important',
         background: 'none !important',
     },
 };
+
 
 // Main container with a pulse animation.
 const MainContainer = styled(Box)(({ theme }) => ({
