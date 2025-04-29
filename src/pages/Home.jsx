@@ -1,17 +1,4 @@
 import React from 'react';
-import {
-    Box,
-    Container,
-    Typography,
-    Button,
-    Grid,
-    Card,
-    CardContent,
-    CardMedia,
-    useTheme,
-    useMediaQuery,
-} from '@mui/material';
-
 import img3 from '../assets/3.png';
 import img9 from '../assets/9.png';
 import sofa from '../assets/7.png';
@@ -20,12 +7,6 @@ import consult from '../assets/consultare.png';
 import signed from '../assets/semnat.png';
 
 export default function Home() {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
-    const headingFont = { fontFamily: '"EB Garamond", serif' };
-    const bodyFont = { fontFamily: '"Lato", sans-serif' };
-
     const scrollToFooter = () => {
         const footer = document.getElementById('footer');
         if (footer) {
@@ -34,110 +15,37 @@ export default function Home() {
     };
 
     return (
-        <Box sx={{ color: '#fff', pb: 10 }}>
-            <Box
-                sx={{
-                    minHeight: '100vh',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    px: 2,
-                }}
-            >
-                <Box
-                    sx={{
-                        maxWidth: '900px',
-                        width: '100%',
-                        background: 'rgba(0, 0, 0, 0.6)',
-                        backdropFilter: 'blur(20px)',
-                        borderRadius: '20px',
-                        textAlign: 'center',
-                        py: { xs: 6, md: 8 },
-                        px: { xs: 3, md: 6 },
-                        boxShadow: '0 8px 60px rgba(0,0,0,0.6)',
-                    }}
-                >
-                    <Typography
-                        variant="h2"
-                        fontWeight={700}
-                        sx={{
-                            ...headingFont,
-                            fontSize: { xs: '2rem', md: '3rem' },
-                            mb: 2,
-                            textShadow: '1px 1px 8px rgba(0,0,0,0.8)',
-                        }}
-                    >
+        <div className="text-white font-[Lato]">
+            {/* Hero Section */}
+            <div className="min-h-screen flex items-center justify-center px-4 bg-cover bg-center relative bg-no-repeat" style={{ backgroundImage: 'url(/images/home-backgr.png)' }}>
+                <div className="absolute inset-0 bg-black/60 backdrop-blur-md" />
+                <div className="relative z-10 max-w-4xl w-full text-center p-8 md:p-12 bg-white/10 backdrop-blur-xl rounded-3xl shadow-2xl">
+                    <h1 className="text-4xl md:text-5xl font-bold font-[EB Garamond] mb-4 drop-shadow-xl">
                         Biroul Notarial Roșu Elisabeta
-                    </Typography>
-                    <Typography
-                        variant="h6"
-                        sx={{
-                            ...bodyFont,
-                            color: 'rgba(255,255,255,0.9)',
-                            mb: 4,
-                            fontWeight: 400,
-                            fontSize: { xs: '1rem', md: '1.25rem' },
-                            textShadow: '1px 1px 4px rgba(0,0,0,0.6)',
-                        }}
-                    >
+                    </h1>
+                    <p className="text-lg md:text-xl mb-6 text-white/90 font-light drop-shadow-md">
                         Profesionalism, promptitudine și confidențialitate în servicii notariale.
-                    </Typography>
-                    <Button
-                        variant="contained"
+                    </p>
+                    <button
                         onClick={scrollToFooter}
-                        sx={{
-                            backgroundColor: '#2B3A67',
-                            borderRadius: '30px',
-                            px: 5,
-                            py: 1.5,
-                            fontWeight: 'bold',
-                            fontSize: '1rem',
-                            '&:hover': { backgroundColor: '#3C4F7E' },
-                        }}
+                        className="bg-blue-900 hover:bg-blue-800 text-white font-semibold text-lg py-2 px-6 rounded-full transition-all shadow-md"
                     >
                         Contactați-ne
-                    </Button>
-                </Box>
-            </Box>
+                    </button>
+                </div>
+            </div>
 
-            <Container maxWidth="lg" sx={{ my: 12 }}>
-                <Box
-                    sx={{
-                        background: 'rgba(255,255,255,0.07)',
-                        backdropFilter: 'blur(12px)',
-                        borderRadius: 6,
-                        px: { xs: 3, md: 6 },
-                        py: { xs: 6, md: 8 },
-                    }}
-                >
-                    <Typography
-                        variant="h3"
-                        fontWeight={600}
-                        textAlign="center"
-                        mb={4}
-                        sx={{ ...headingFont, textShadow: '1px 1px 4px rgba(0,0,0,0.6)' }}
-                    >
+            {/* Despre noi */}
+            <section className="max-w-7xl mx-auto py-20 px-4">
+                <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-8 md:p-12 shadow-2xl">
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 font-[EB Garamond] text-white drop-shadow-md">
                         Despre noi
-                    </Typography>
-
-                    <Typography
-                        variant="body1"
-                        textAlign="center"
-                        mb={6}
-                        sx={{
-                            ...bodyFont,
-                            fontSize: '1.2rem',
-                            color: 'rgba(255,255,255,0.88)',
-                            lineHeight: 1.9,
-                            maxWidth: '900px',
-                            margin: '0 auto',
-                        }}
-                    >
+                    </h2>
+                    <p className="text-center text-white/90 text-lg md:text-xl mb-12 leading-relaxed max-w-3xl mx-auto">
                         Vă întâmpinăm cu un birou modern și o echipă dedicată, într-un mediu profesionist și prietenos.
                         Mai jos găsiți imagini din spațiul nostru de lucru.
-                    </Typography>
-
-                    <Grid container spacing={4} justifyContent="center">
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                         {[
                             {
                                 title: 'Spațiu de primire clienți',
@@ -155,85 +63,29 @@ export default function Home() {
                                 image: sofa,
                             },
                         ].map((item, i) => (
-                            <Grid item xs={12} sm={6} md={4} key={i}>
-                                <Card
-                                    sx={{
-                                        height: '100%',
-                                        borderRadius: 4,
-                                        background: 'rgba(255,255,255,0.05)',
-                                        backdropFilter: 'blur(10px)',
-                                        color: '#fff',
-                                        boxShadow: '0 8px 30px rgba(0,0,0,0.3)',
-                                        transition: 'transform 0.3s ease',
-                                        '&:hover': {
-                                            transform: 'scale(1.02)',
-                                        },
-                                    }}
-                                >
-                                    <CardMedia
-                                        component="img"
-                                        image={item.image}
-                                        alt={item.title}
-                                        sx={{ height: 220, objectFit: 'cover' }}
-                                    />
-                                    <CardContent>
-                                        <Typography
-                                            variant="h6"
-                                            fontWeight={600}
-                                            mb={2}
-                                            sx={{ ...headingFont, color: '#FFD700' }}
-                                        >
-                                            {item.title}
-                                        </Typography>
-                                        <Typography variant="body2" sx={{ ...bodyFont, color: 'rgba(255,255,255,0.9)' }}>
-                                            {item.desc}
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
-                            </Grid>
+                            <div key={i} className="bg-white/5 rounded-xl overflow-hidden shadow-lg backdrop-blur-md hover:scale-[1.02] transition-transform">
+                                <img src={item.image} alt={item.title} className="w-full aspect-[4/3] object-cover" />
+                                <div className="p-6">
+                                    <h3 className="text-xl font-semibold text-yellow-400 mb-2 font-[EB Garamond]">{item.title}</h3>
+                                    <p className="text-white/90 text-sm">{item.desc}</p>
+                                </div>
+                            </div>
                         ))}
-                    </Grid>
-                </Box>
-            </Container>
+                    </div>
+                </div>
+            </section>
 
-            <Container maxWidth="lg" sx={{ mb: 12 }}>
-                <Box
-                    sx={{
-                        background: 'rgba(255,255,255,0.08)',
-                        backdropFilter: 'blur(14px)',
-                        borderRadius: 6,
-                        px: { xs: 3, md: 6 },
-                        py: { xs: 6, md: 8 },
-                        boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
-                    }}
-                >
-                    <Typography
-                        variant="h3"
-                        fontWeight={600}
-                        textAlign="center"
-                        mb={4}
-                        sx={{ ...headingFont, textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}
-                    >
+            {/* Servicii */}
+            <section className="max-w-7xl mx-auto pb-24 px-4">
+                <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-8 md:p-12 shadow-2xl">
+                    <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 font-[EB Garamond] text-white drop-shadow-md">
                         Servicii
-                    </Typography>
-                    <Typography
-                        variant="body1"
-                        textAlign="center"
-                        mb={6}
-                        sx={{
-                            ...bodyFont,
-                            color: 'rgba(255,255,255,0.85)',
-                            fontSize: '1.05rem',
-                            maxWidth: '850px',
-                            mx: 'auto',
-                            lineHeight: 1.7,
-                        }}
-                    >
+                    </h2>
+                    <p className="text-center text-white/85 text-lg md:text-xl mb-12 leading-relaxed max-w-3xl mx-auto">
                         Oferim o gamă completă de servicii notariale pentru persoane fizice și juridice,
                         garantând transparență, legalitate și promptitudine pentru fiecare act întocmit.
-                    </Typography>
-
-                    <Grid container spacing={4} justifyContent="center">
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                         {[
                             {
                                 title: 'Autentificări și Legalizări',
@@ -251,46 +103,17 @@ export default function Home() {
                                 image: signed,
                             },
                         ].map((item, i) => (
-                            <Grid item xs={12} sm={6} md={4} key={i}>
-                                <Card
-                                    sx={{
-                                        height: '100%',
-                                        borderRadius: 4,
-                                        background: 'rgba(255,255,255,0.05)',
-                                        backdropFilter: 'blur(10px)',
-                                        color: '#fff',
-                                        boxShadow: '0 8px 30px rgba(0,0,0,0.3)',
-                                        transition: 'transform 0.3s ease',
-                                        '&:hover': {
-                                            transform: 'scale(1.02)',
-                                        },
-                                    }}
-                                >
-                                    <CardMedia
-                                        component="img"
-                                        image={item.image}
-                                        alt={item.title}
-                                        sx={{ height: 200, objectFit: 'cover' }}
-                                    />
-                                    <CardContent>
-                                        <Typography
-                                            variant="h6"
-                                            fontWeight={600}
-                                            mb={2}
-                                            sx={{ ...headingFont, color: '#FFD700' }}
-                                        >
-                                            {item.title}
-                                        </Typography>
-                                        <Typography variant="body2" sx={{ ...bodyFont, color: 'rgba(255,255,255,0.9)' }}>
-                                            {item.desc}
-                                        </Typography>
-                                    </CardContent>
-                                </Card>
-                            </Grid>
+                            <div key={i} className="bg-white/5 rounded-xl overflow-hidden shadow-lg backdrop-blur-md hover:scale-[1.02] transition-transform">
+                                <img src={item.image} alt={item.title} className="w-full aspect-[4/3] object-cover" />
+                                <div className="p-6">
+                                    <h3 className="text-xl font-semibold text-yellow-400 mb-2 font-[EB Garamond]">{item.title}</h3>
+                                    <p className="text-white/90 text-sm">{item.desc}</p>
+                                </div>
+                            </div>
                         ))}
-                    </Grid>
-                </Box>
-            </Container>
-        </Box>
+                    </div>
+                </div>
+            </section>
+        </div>
     );
 }
