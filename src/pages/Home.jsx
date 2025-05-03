@@ -30,7 +30,7 @@ export default function Home() {
             className="
                 group relative rounded-xl overflow-hidden shadow-lg border border-white/10
                 bg-white/5 backdrop-blur-xl transition-all duration-300
-                hover:-translate-y-2 hover:shadow-2xl
+                hover:-translate-y-2 hover:shadow-2xl flex flex-col
             "
         >
             <div className="relative overflow-hidden rounded-t-xl">
@@ -42,14 +42,14 @@ export default function Home() {
                     "
                 />
             </div>
-            <div className="p-6 bg-white/10 backdrop-blur-xl rounded-b-xl">
+            <div className="p-6 bg-white/10 backdrop-blur-xl rounded-b-xl flex-grow flex flex-col">
                 <h3 className="
-                    text-xl font-semibold text-yellow-400 mb-2 font-[Merriweather]
+                    text-2xl font-semibold text-yellow-400 mb-2 font-[Merriweather]
                     transition-colors duration-200 group-hover:text-yellow-300
                 ">
                     {item.title}
                 </h3>
-                <p className="text-white/85 text-base">{item.desc}</p>
+                <p className="text-white/85 text-lg flex-grow">{item.desc}</p>
             </div>
         </div>
     );
@@ -60,14 +60,14 @@ export default function Home() {
             style={{ backgroundImage: `url(/images/home-backgr.png)` }}
         >
             {/* HERO */}
-            <section className="flex items-center justify-center min-h-[90vh] pt-32 px-4">
+            <section className="flex items-center justify-center min-h-[4vh] pt-32 px-4">
                 <div className="
                     bg-white/10 backdrop-blur-xl rounded-3xl shadow-xl border border-white/20 p-16 text-center max-w-4xl w-full
                 ">
-                    <h1 className="text-4xl md:text-5xl font-[Merriweather] font-bold mb-5 drop-shadow-xl leading-tight">
+                    <h1 className="text-5xl md:text-6xl font-[Merriweather] font-bold mb-5 drop-shadow-xl leading-tight">
                         Biroul Notarial Roșu Elisabeta
                     </h1>
-                    <p className="text-lg md:text-xl mb-8 text-white/90 font-light drop-shadow-md leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-xl md:text-2xl mb-8 text-white/90 font-light drop-shadow-md leading-relaxed max-w-2xl mx-auto">
                         Profesionalism, promptitudine și confidențialitate în servicii notariale.
                     </p>
                     <button
@@ -86,12 +86,12 @@ export default function Home() {
             {/* DESPRE NOI */}
             <section className="max-w-7xl mx-auto py-24 px-4">
                 <div className="
-                    bg-white/10 backdrop-blur-xl rounded-3xl shadow-xl border border-white/20 p-12
-                ">
-                    <h2 className="text-3xl md:text-4xl font-[Merriweather] font-bold text-center mb-6 text-white drop-shadow-md">
+                                bg-white/10 backdrop-blur-xl rounded-3xl shadow-xl border border-white/20 p-12
+                            ">
+                    <h2 className="text-5xl md:text-6xl font-[Merriweather] font-bold text-center mb-6 text-white drop-shadow-md">
                         Despre noi
                     </h2>
-                    <p className="text-center text-white/85 text-base md:text-lg mb-10 leading-relaxed max-w-3xl mx-auto">
+                    <p className="text-center text-white/85 text-xl md:text-2xl mb-10 leading-relaxed max-w-3xl mx-auto">
                         Vă întâmpinăm cu un birou modern și o echipă dedicată, într-un mediu profesionist și prietenos.
                         Mai jos găsiți imagini din spațiul nostru de lucru.
                     </p>
@@ -106,10 +106,10 @@ export default function Home() {
                 <div className="
                     bg-white/10 backdrop-blur-xl rounded-3xl shadow-xl border border-white/20 p-12
                 ">
-                    <h2 className="text-3xl md:text-4xl font-[Merriweather] font-bold text-center mb-6 text-white drop-shadow-md">
+                    <h2 className="text-4xl md:text-5xl font-[Merriweather] font-bold text-center mb-6 text-white drop-shadow-md">
                         Servicii
                     </h2>
-                    <p className="text-center text-white/80 text-base md:text-lg mb-10 leading-relaxed max-w-3xl mx-auto">
+                    <p className="text-center text-white/80 text-lg md:text-xl mb-10 leading-relaxed max-w-3xl mx-auto">
                         Oferim o gamă completă de servicii notariale pentru persoane fizice și juridice,
                         garantând transparență, legalitate și promptitudine pentru fiecare act întocmit.
                     </p>
