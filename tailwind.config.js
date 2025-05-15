@@ -10,7 +10,13 @@ module.exports = {
     'group-hover:opacity-100',
     'group-hover:text-yellow-300',
   ],
-  theme: { extend: {} },
+  theme: {
+    extend: {
+      screens: {
+        'between-sm-md': { 'min': '640px', 'max': '767px' },
+      },
+    },
+  },
   plugins: [],
 };
 

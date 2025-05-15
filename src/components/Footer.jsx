@@ -17,9 +17,9 @@ export default function Footer() {
       component="footer"
       id="footer"
       sx={{
-        background: 'rgba(255, 255, 255, 0.12)',
-        backdropFilter: 'blur(18px)',
-        borderTop: '1px solid rgba(255, 255, 255, 0.2)',
+        /* ⬇️  blur înlăturat – rămâne un fundal translucid simplu */
+        background: 'rgba(255,255,255,0.12)',
+        borderTop: '1px solid rgba(255,255,255,0.25)',
         py: { xs: 5, md: 7 },
         px: { xs: 2, md: 4 },
         mt: 10,
@@ -35,27 +35,23 @@ export default function Footer() {
           alignItems="flex-start"
           justifyContent="center"
         >
+          {/* ---------------- STÂNGA ---------------- */}
           <Grid item xs={12} md={4}>
             <Typography
               variant="h5"
-              sx={{
-                fontWeight: 700,
-                letterSpacing: 1,
-                mb: 1,
-                fontSize: { xs: '1.4rem', md: '1.6rem' },
-              }}
+              sx={{ fontWeight: 700, letterSpacing: 1, mb: 1, fontSize: { xs: '1.4rem', md: '1.6rem' } }}
             >
               Notariat Roșu Elisabeta
             </Typography>
             <Typography
               variant="body2"
-              color="rgba(255,255,255,0.85)"
-              sx={{ fontSize: { xs: '0.95rem', md: '1rem' }, lineHeight: 1.6 }}
+              sx={{ color: 'rgba(255,255,255,0.85)', fontSize: { xs: '0.95rem', md: '1rem' }, lineHeight: 1.6 }}
             >
               Birou Individual – Servicii notariale profesioniste, confidențiale și rapide.
             </Typography>
           </Grid>
 
+          {/* ---------------- MIJLOC ---------------- */}
           <Grid item xs={12} md={4}>
             <Typography
               variant="h6"
@@ -74,7 +70,7 @@ export default function Footer() {
               flexWrap="wrap"
             >
               <LocationOnIcon sx={{ color: '#FFD700' }} />
-              <Typography variant="body2" sx={{ maxWidth: '260px' }}>
+              <Typography variant="body2" sx={{ maxWidth: 260 }}>
                 Str. Vasile Conta nr. 4, et. 2, sector 2, interfon 02, București
               </Typography>
             </Box>
@@ -113,6 +109,7 @@ export default function Footer() {
             </Box>
           </Grid>
 
+          {/* ---------------- DREAPTA ---------------- */}
           <Grid item xs={12} md={4}>
             <Typography
               variant="h6"
@@ -136,7 +133,7 @@ export default function Footer() {
               mt={1}
               sx={{ pl: { xs: 0, md: 4 }, textAlign: { xs: 'center', md: 'left' } }}
             >
-              Sâmbătă & Duminică: Închis
+              Sâmbătă &amp; Duminică: Închis
             </Typography>
           </Grid>
         </Grid>
@@ -144,17 +141,14 @@ export default function Footer() {
         <Divider
           sx={{
             my: { xs: 4, md: 5 },
-            borderColor: 'rgba(255,255,255,0.2)',
+            borderColor: 'rgba(255,255,255,0.25)',
           }}
         />
 
         <Typography
           variant="body2"
           align="center"
-          sx={{
-            fontSize: '0.85rem',
-            color: 'rgba(255,255,255,0.7)',
-          }}
+          sx={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)' }}
         >
           &copy; {new Date().getFullYear()} Biroul Notarial <strong>Roșu Elisabeta</strong>. Toate drepturile rezervate.
         </Typography>

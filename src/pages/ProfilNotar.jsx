@@ -3,6 +3,7 @@ import img1 from '../assets/1.png';
 import img10 from '../assets/10.png';
 
 export default function ProfilNotarial() {
+    /* ----------------- STILURI ----------------- */
     const containerStyle = {
         minHeight: '100vh',
         backgroundImage: `url("/images/home-backgr.png")`,
@@ -13,14 +14,13 @@ export default function ProfilNotarial() {
         alignItems: 'flex-start',
         paddingTop: '120px',
         paddingBottom: '4rem',
-        paddingLeft: '1rem',
-        paddingRight: '1rem',
+        paddingInline: '1rem',
     };
 
+    /*  🔵 blur scos din panelul principal  */
     const glassStyle = {
-        background: 'rgba(255, 255, 255, 0.15)',
+        background: 'rgba(255,255,255,0.15)',
         borderRadius: '20px',
-        backdropFilter: 'blur(15px)',
         boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
         color: '#fff',
         maxWidth: '1100px',
@@ -36,21 +36,12 @@ export default function ProfilNotarial() {
         marginBottom: '1rem',
     };
 
-    const nameStyle = {
-        fontSize: '2.5rem',
-        fontWeight: '700',
-        marginBottom: '0.5rem',
-    };
-
-    const subtitleStyle = {
-        fontSize: '1.4rem',
-        fontWeight: '500',
-        marginBottom: '1rem',
-    };
+    const nameStyle = { fontSize: '2.5rem', fontWeight: 700, marginBottom: '0.5rem' };
+    const subtitleStyle = { fontSize: '1.4rem', fontWeight: 500, marginBottom: '1rem' };
 
     const descStyle = {
         fontSize: '1.1rem',
-        lineHeight: '1.8',
+        lineHeight: 1.8,
         maxWidth: '900px',
         margin: '0 auto',
         textAlign: 'justify',
@@ -83,27 +74,23 @@ export default function ProfilNotarial() {
         transition: 'transform 0.5s ease',
     };
 
-    const imageHoverStyle = {
-        ...imageStyle,
-        '@media (hover: hover)': {
-            ':hover': { transform: 'scale(1.05)' },
-        },
-    };
-
+    /*  container hartă fără blur */
     const mapContainerStyle = {
-        background: 'rgba(255, 255, 255, 0.12)',
+        background: 'rgba(255,255,255,0.12)',
         borderRadius: '12px',
         padding: '1rem',
         boxShadow: '0 8px 20px rgba(0,0,0,0.2)',
     };
 
+    /* ----------------- JSX ----------------- */
     return (
         <div style={containerStyle}>
             <div style={glassStyle}>
-                {/* HEADER */}
+                {/* -------- HEADER -------- */}
                 <div style={headerStyle}>
                     <h2 style={nameStyle}>Roșu Elisabeta</h2>
                     <p style={subtitleStyle}>Notar Public din București</p>
+
                     <div style={descStyle}>
                         <p>
                             Sunt Roșu Elisabeta, notar public în București, și îmi desfășor activitatea cu seriozitate,
@@ -131,37 +118,30 @@ export default function ProfilNotarial() {
                     </div>
                 </div>
 
-                {/* IMAGINI */}
+                {/* -------- IMAGINI -------- */}
                 <div style={imagesStyle}>
-                    <div style={imageWrapperStyle}>
-                        <img
-                            src={img1}
-                            alt="Notar la eveniment profesional"
-                            style={imageStyle}
-                            onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; }}
-                            onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
-                        />
-                    </div>
-                    <div style={imageWrapperStyle}>
-                        <img
-                            src={img10}
-                            alt="Notar pe terasa biroului"
-                            style={imageStyle}
-                            onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.05)'; }}
-                            onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; }}
-                        />
-                    </div>
+                    {[img1, img10].map((src, idx) => (
+                        <div key={idx} style={imageWrapperStyle}>
+                            <img
+                                src={src}
+                                alt={`Notar ${idx + 1}`}
+                                style={imageStyle}
+                                onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+                                onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+                            />
+                        </div>
+                    ))}
                 </div>
 
-                {/* HARTA */}
+                {/* -------- HARTĂ -------- */}
                 <div style={mapContainerStyle}>
                     <h4 style={{ marginBottom: '0.5rem', fontSize: '1.3rem' }}>Localizare birou</h4>
                     <iframe
                         src="https://www.google.com/maps?q=Str.+Vasile+Conta+4,+Bucuresti&output=embed"
                         title="Harta birou notarial"
-                        style={{ width: '100%', height: '300px', border: '0', borderRadius: '8px' }}
+                        style={{ width: '100%', height: '300px', border: 0, borderRadius: '8px' }}
                         allowFullScreen
-                    ></iframe>
+                    />
                 </div>
             </div>
         </div>
