@@ -1,111 +1,105 @@
-import React from 'react';
-import './Procuri.css';
+import React, { useState } from 'react';
 
 export default function Procuri() {
+    const [cost, setCost] = useState('-');
+
+    const calculeaza = (tip) => {
+        switch (tip) {
+            case 'simpla': return '80 lei';
+            case 'auto': return '100 lei';
+            case 'generala': return '200 lei';
+            case 'str': return '350 lei';
+            default: return '-';
+        }
+    };
+
     return (
-        <div className="procuri-container">
-            <h1 className="procuri-title">Procuri Notariale</h1>
-            <p className="procuri-description">
-                Procura notarială este un act juridic prin care o persoană (mandant) împuternicește o altă persoană (mandatar)
-                să o reprezinte sau să acționeze în numele său într-un anumit scop. Aceasta trebuie întocmită în formă autentică
-                la notar pentru a produce efecte juridice deplină.
-            </p>
+        <div
+            className="min-h-screen bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: 'url("/images/062329ae-4fc8-4410-b6a4-4d61249b7eb3.png")' }}
+        >
+            <div className="max-w-5xl mx-auto px-6 py-24 md:py-36">
+                <div className="bg-black bg-opacity-75 backdrop-blur-lg rounded-3xl p-8 md:p-14 text-white shadow-2xl">
+                    <h1 className="text-5xl md:text-6xl font-extrabold text-center text-cyan-300 mb-12">
+                        Procuri Notariale
+                    </h1>
 
-            <section className="procuri-section">
-                <h2>Tipuri Comune de Procuri</h2>
-                <ul>
-                    <li><strong>Procura generală:</strong> Acordă mandat pentru multiple acțiuni, inclusiv administrative, financiare sau juridice.</li>
-                    <li><strong>Procura specială:</strong> Se referă la un anumit act sau tranzacție (ex: vânzare auto, închiriere locuință).</li>
-                    <li><strong>Procura auto:</strong> Pentru vânzarea, înmatricularea sau radierea unui autovehicul.</li>
-                    <li><strong>Procura pentru ANAF:</strong> Reprezentare în fața autorităților fiscale pentru depunere declarații, cereri etc.</li>
-                    <li><strong>Procura bancară:</strong> Deschidere cont, semnare contracte de credit, retrageri de numerar în numele titularului.</li>
-                    <li><strong>Procuri pentru străinătate:</strong> Redactate în limbă română + traducere autorizată și apostilă dacă este necesar.</li>
-                </ul>
-                <p>
-                    În funcție de scop, notarul poate solicita documente justificative (ex: act auto, CNP beneficiar, acte firmă).
-                </p>
-            </section>
+                    <p className="text-xl leading-8 text-gray-100 mb-10">
+                        Procura este documentul prin care împuterniciți pe cineva să acționeze în numele dumneavoastră.
+                        Notarul vă oferă garanția legalității, adaptarea la cerințele instituțiilor și siguranța juridică deplină.
+                    </p>
 
-            <section className="procuri-section">
-                <h2>Ce Trebuie Să Pregătiți</h2>
-                <ul>
-                    <li>Actul de identitate valabil (mandant + mandatar)</li>
-                    <li>Datele exacte ale persoanei împuternicite</li>
-                    <li>Detaliile operațiunii pentru care se face procura</li>
-                    <li>Dovada titlului de proprietate, dacă este necesar</li>
-                </ul>
-                <p>
-                    Pentru procurile destinate străinătății sau instituțiilor oficiale, este recomandat să aduceți modele/formate
-                    cerute de autorități.
-                </p>
-            </section>
-            <section className="procuri-section">
-                <h2>Costuri și Tarife Notariale</h2>
-                <p>
-                    Tarifele pentru întocmirea unei procuri sunt reglementate prin Ordinul Ministerului Justiției și variază în funcție de tipul și conținutul documentului.
-                    Mai jos sunt câteva repere orientative:
-                </p>
-                <ul>
-                    <li><strong>Procura simplă:</strong> între <strong>60 – 100 lei</strong></li>
-                    <li><strong>Procura auto:</strong> între <strong>80 – 120 lei</strong></li>
-                    <li><strong>Procura generală (completă):</strong> între <strong>150 – 300 lei</strong></li>
-                    <li><strong>Procura pentru străinătate + traducere:</strong> între <strong>250 – 500 lei</strong></li>
-                </ul>
-                <p>
-                    În cazuri speciale pot apărea costuri suplimentare (traduceri, apostilare, legalizare semnături).
-                </p>
-            </section>
+                    <section className="mb-12">
+                        <h2 className="text-3xl font-semibold text-cyan-300 mb-4">📂 Tipuri de Procuri</h2>
+                        <ul className="list-disc list-inside space-y-3 text-lg text-gray-200">
+                            <li><strong>Generală:</strong> acțiuni administrative, juridice sau bancare</li>
+                            <li><strong>Specială:</strong> pentru un act anume (ex: vânzare auto)</li>
+                            <li><strong>Auto:</strong> înmatriculare, vânzare sau radiere autovehicul</li>
+                            <li><strong>ANAF:</strong> reprezentare fiscală și declarații</li>
+                            <li><strong>Bancară:</strong> deschidere cont, credite, retrageri</li>
+                            <li><strong>Internațională:</strong> tradusă, legalizată, apostilată (dacă e cazul)</li>
+                        </ul>
+                        <p className="text-gray-300 mt-4">🔎 Notarul poate solicita acte-suport: buletin, acte auto, date firmă, ș.a.</p>
+                    </section>
 
-            <section className="procuri-section calculator-wrap">
-                <h2>Calculator Estimativ Procura</h2>
-                <p>Selectați tipul procurii pentru a vedea un cost orientativ:</p>
+                    <section className="mb-12">
+                        <h2 className="text-3xl font-semibold text-cyan-300 mb-4">📝 Ce Trebuie Să Pregătiți</h2>
+                        <ul className="list-disc list-inside space-y-3 text-lg text-gray-200">
+                            <li>Buletin valabil (mandant și, dacă e prezent, mandatarul)</li>
+                            <li>Datele exacte ale persoanei împuternicite</li>
+                            <li>Scopul concret al procurii (acte, instituții, bunuri)</li>
+                            <li>Dovezi: acte de proprietate, CNP beneficiar, format tip (dacă e cerut)</li>
+                        </ul>
+                        <p className="text-gray-300 mt-4">⚠️ Pentru procuri internaționale, aduceți modelul solicitat de autorități!</p>
+                    </section>
 
-                <div className="calculator-form">
-                    <select onChange={(e) => {
-                        const type = e.target.value;
-                        let result = '-';
-                        switch (type) {
-                            case 'simpla':
-                                result = '80 lei';
-                                break;
-                            case 'auto':
-                                result = '100 lei';
-                                break;
-                            case 'generala':
-                                result = '200 lei';
-                                break;
-                            case 'str':
-                                result = '350 lei';
-                                break;
-                            default:
-                                result = '-';
-                        }
-                        document.getElementById('procura-cost-output').innerText = result;
-                    }}>
-                        <option value="">Alege tipul procurii</option>
-                        <option value="simpla">Procura simplă</option>
-                        <option value="auto">Procura auto</option>
-                        <option value="generala">Procura generală</option>
-                        <option value="str">Procura pentru străinătate</option>
-                    </select>
-                    <p><strong>Estimare:</strong> <span id="procura-cost-output">-</span></p>
+                    <section className="mb-12">
+                        <h2 className="text-3xl font-semibold text-cyan-300 mb-4">💰 Costuri și Tarife</h2>
+                        <ul className="list-disc list-inside space-y-3 text-lg text-gray-200">
+                            <li><strong>Procura simplă:</strong> 60 – 100 lei</li>
+                            <li><strong>Procura auto:</strong> 80 – 120 lei</li>
+                            <li><strong>Procura generală:</strong> 150 – 300 lei</li>
+                            <li><strong>Procura internațională + traducere:</strong> 250 – 500 lei</li>
+                        </ul>
+                        <p className="text-gray-300 mt-4">În funcție de traducere, apostilare sau legalizare, costul poate crește.</p>
+                    </section>
+
+                    <section className="mb-12">
+                        <h2 className="text-3xl font-semibold text-cyan-300 mb-4">🧮 Calculator Estimativ Procura</h2>
+                        <div className="bg-gray-900 bg-opacity-60 rounded-xl p-6">
+                            <select
+                                className="w-full p-4 mb-4 text-black text-lg rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-300"
+                                onChange={(e) => setCost(calculeaza(e.target.value))}
+                            >
+                                <option value="">Alege tipul procurii</option>
+                                <option value="simpla">Procura simplă</option>
+                                <option value="auto">Procura auto</option>
+                                <option value="generala">Procura generală</option>
+                                <option value="str">Procura pentru străinătate</option>
+                            </select>
+                            <p className="text-lg text-white">
+                                Estimare onorariu: <span className="text-cyan-300 font-semibold">{cost}</span>
+                            </p>
+                            <p className="text-sm text-gray-400 mt-2">* Prețul poate varia în funcție de conținut și traducere.</p>
+                        </div>
+                    </section>
+
+                    <section className="mb-4">
+                        <h2 className="text-3xl font-semibold text-cyan-300 mb-4">📌 Recomandări Practice</h2>
+                        <ul className="list-disc list-inside space-y-3 text-lg text-gray-200">
+                            <li>Limitați durata la 6–12 luni pentru siguranță</li>
+                            <li>Evitați delegarea excesivă de drepturi</li>
+                            <li>Adăugați clauze de revocare sau condiții clare</li>
+                            <li>Verificați cerințele autorităților dacă procura e folosită internațional</li>
+                        </ul>
+                        <p className="text-gray-300 mt-4">💡 Notarul vă poate oferi un model adaptat exact pentru instituția sau scopul urmărit.</p>
+                    </section>
+
+                    <p className="text-center text-gray-300 italic mt-12 text-lg">
+                        Cu o procură notarială corect redactată, obțineți siguranță, eficiență și respectarea voinței dumneavoastră.
+                    </p>
                 </div>
-
-                <p className="note">* Estimările sunt orientative. Costul final este stabilit în funcție de complexitate și pagini.</p>
-            </section>
-
-            <section className="procuri-section">
-                <h2>Recomandări Juridice</h2>
-                <ul>
-                    <li>Verificați dacă procura necesită apostilă pentru utilizare internațională</li>
-                    <li>Nu delegați mai multe acțiuni decât este necesar</li>
-                    <li>Stabiliți un termen de valabilitate limitat (6–12 luni)</li>
-                    <li>Adăugați clauze de revocare sau limitare dacă este posibil</li>
-                </ul>
-                <p>
-                    Notarul nostru vă poate consilia pentru a evita riscurile juridice, oferind modele verificate și adaptate fiecărei situații.
-                </p>
-            </section>
+            </div>
         </div>
     );
 }

@@ -1,90 +1,95 @@
-import React from 'react';
-import './Testamente.css';
+import React, { useState } from 'react';
 
 export default function Testamente() {
+    const [valoare, setValoare] = useState('');
+    const calcul = (v) => {
+        const x = parseFloat(v);
+        if (!x || x <= 0) return '-';
+        return `${(0.005 * x + 150).toFixed(2)} RON`;
+    };
+
     return (
-        <div className="testamente-container">
-            <h1 className="testamente-title">Testamente și Dispoziții de Ultimă Voință</h1>
-            <p className="testamente-description">
-                Testamentul este un act juridic unilateral, solemn și personal, prin care o persoană își exprimă voința cu privire
-                la modul în care vor fi împărțite bunurile sale după deces. La biroul nostru notarial, vă oferim consultanță,
-                redactare și autentificare pentru testamente conforme cu legislația română.
-            </p>
+        <div
+            className="min-h-screen bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: 'url("/images/062329ae-4fc8-4410-b6a4-4d61249b7eb3.png")' }}
+        >
+            <div className="max-w-5xl mx-auto px-6 py-24 md:py-36">
+                <div className="bg-black bg-opacity-75 backdrop-blur-lg rounded-3xl p-8 md:p-14 text-white shadow-2xl">
+                    <h1 className="text-5xl md:text-6xl font-extrabold text-center text-purple-300 mb-12">
+                        Testamente și Dispoziții de Ultimă Voință
+                    </h1>
 
-            <section className="testamente-section">
-                <h2>Tipuri de Testamente Recunoscute în România</h2>
-                <ul>
-                    <li><strong>Testamentul olograf:</strong> Scris de mână integral de către testator, semnat și datat.</li>
-                    <li><strong>Testamentul autentic:</strong> Redactat și autentificat în fața unui notar public.</li>
-                    <li><strong>Testamentul secret:</strong> Sigilat și predat notarului fără a-i dezvălui conținutul.</li>
-                    <li><strong>Testamente privilegiate:</strong> Redactate în circumstanțe excepționale (război, carantină etc.)</li>
-                </ul>
-                <p>
-                    Cel mai sigur și recomandat este <strong>testamentul autentic</strong>, întrucât beneficiază de forță probantă deplină
-                    și nu poate fi contestat ușor în instanță.
-                </p>
-            </section>
+                    <p className="text-xl leading-8 text-gray-100 mb-10">
+                        Testamentul este un act juridic unilateral prin care o persoană stabilește cum vor fi împărțite bunurile sale
+                        după deces. Forma autentică oferă protecție juridică maximă. Notarul oferă consultanță, redactare și
+                        autentificare în condiții legale.
+                    </p>
 
-            <section className="testamente-section">
-                <h2>Condiții de Valabilitate</h2>
-                <ul>
-                    <li>Testatorul trebuie să aibă capacitate deplină de exercițiu</li>
-                    <li>Voința sa trebuie exprimată în mod liber și conștient</li>
-                    <li>Testamentul trebuie să respecte forma legală (în funcție de tip)</li>
-                    <li>Nu poate aduce atingere rezervelor succesorale ale moștenitorilor legali (descendenți, soț supraviețuitor)</li>
-                </ul>
-                <p>
-                    Orice clauză abuzivă sau nelegală poate fi anulată de instanță. Notarul are obligația să verifice legalitatea actului.
-                </p>
-            </section>
-            <section className="testamente-section">
-                <h2>Costuri și Taxe Notariale</h2>
-                <p>
-                    Costul autentificării unui testament diferă în funcție de complexitatea dispozițiilor testamentare și de valoarea bunurilor menționate.
-                    Prețul este stabilit conform Ordinului Ministrului Justiției nr. 46/C/2011 privind onorariile notariale:
-                </p>
-                <ul>
-                    <li>Testament simplu: între <strong>120–300 lei</strong>, în funcție de redactare și formalități</li>
-                    <li>Testament complex cu dispoziții patrimoniale: onorariu proporțional cu valoarea estimată (0,4%–0,8%)</li>
-                    <li>Consultanță pentru redactare: <strong>50–100 lei</strong>, dacă este oferită separat</li>
-                </ul>
-                <p>În cazul testatorilor în vârstă, notarul poate solicita și o evaluare psihologică privind capacitatea de exercițiu.</p>
-            </section>
+                    <section className="mb-12">
+                        <h2 className="text-3xl font-semibold text-purple-300 mb-4">📄 Tipuri de Testamente</h2>
+                        <ul className="list-disc list-inside space-y-3 text-lg text-gray-200">
+                            <li><strong>Olograf:</strong> scris, semnat și datat de mână de testator</li>
+                            <li><strong>Autentic:</strong> redactat și autentificat la notar — cel mai sigur</li>
+                            <li><strong>Secret:</strong> sigilat și înregistrat la notar fără a-i dezvălui conținutul</li>
+                            <li><strong>Privilegiate:</strong> doar în situații excepționale (război, epidemie etc.)</li>
+                        </ul>
+                        <p className="text-gray-300 mt-4">✳️ Recomandare: forma autentică oferă forță juridică maximă și protejează voința testatorului.</p>
+                    </section>
 
-            <section className="testamente-section calculator-wrap">
-                <h2>Calculator Estimativ pentru Testament Autentic</h2>
-                <p>
-                    Introduceți valoarea estimativă a bunurilor menționate în testament pentru a calcula un onorariu orientativ:
-                </p>
-                <div className="calculator-form">
-                    <input
-                        type="number"
-                        placeholder="Valoare estimativă bunuri (RON)"
-                        onChange={(e) => {
-                            const val = parseFloat(e.target.value);
-                            const fee = val ? (0.005 * val + 120) : 0;
-                            document.getElementById('testament-output').innerText =
-                                val > 0 ? `${fee.toFixed(2)} RON` : '-';
-                        }}
-                    />
-                    <p><strong>Estimare onorariu:</strong> <span id="testament-output">-</span></p>
+                    <section className="mb-12">
+                        <h2 className="text-3xl font-semibold text-purple-300 mb-4">✔️ Condiții de Valabilitate</h2>
+                        <ul className="list-disc list-inside space-y-3 text-lg text-gray-200">
+                            <li>Capacitate deplină de exercițiu (vârstă + discernământ)</li>
+                            <li>Voința exprimată liber, fără constrângere</li>
+                            <li>Respectarea formei cerute de lege</li>
+                            <li>Respectarea rezervelor succesorale (moștenitori direcți nu pot fi dezmoșteniți complet)</li>
+                        </ul>
+                        <p className="text-gray-300 mt-4">Notarul are obligația de a verifica atât capacitatea, cât și legalitatea dispozițiilor.</p>
+                    </section>
+
+                    <section className="mb-12">
+                        <h2 className="text-3xl font-semibold text-purple-300 mb-4">💰 Costuri și Onorarii</h2>
+                        <ul className="list-disc list-inside space-y-3 text-lg text-gray-200">
+                            <li><strong>Testament simplu:</strong> 150–300 lei</li>
+                            <li><strong>Testament patrimonial:</strong> 0.4% – 0.8% din valoarea estimată</li>
+                            <li><strong>Consultanță separată:</strong> 50–100 lei</li>
+                        </ul>
+                        <p className="text-gray-300 mt-4">Notarul poate solicita o evaluare psihologică dacă există suspiciuni privind discernământul testatorului.</p>
+                    </section>
+
+                    <section className="mb-12">
+                        <h2 className="text-3xl font-semibold text-purple-300 mb-4">🧮 Calculator Estimativ Testament</h2>
+                        <div className="bg-gray-900 bg-opacity-60 rounded-xl p-6">
+                            <input
+                                type="number"
+                                className="w-full p-4 rounded-md text-black text-lg mb-4 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                                placeholder="Valoare bunuri menționate (RON)"
+                                value={valoare}
+                                onChange={(e) => setValoare(e.target.value)}
+                            />
+                            <p className="text-lg text-white">
+                                Onorariu estimat: <span className="text-purple-300 font-semibold">{calcul(valoare)}</span>
+                            </p>
+                            <p className="text-sm text-gray-400 mt-2">* Estimare informativă. Prețul final depinde de structură și conținut.</p>
+                        </div>
+                    </section>
+
+                    <section className="mb-4">
+                        <h2 className="text-3xl font-semibold text-purple-300 mb-4">📌 Recomandări Notariale</h2>
+                        <ul className="list-disc list-inside space-y-3 text-lg text-gray-200">
+                            <li>Actualizați testamentul dacă apar modificări în familie sau patrimoniu</li>
+                            <li>Evitați expresii vagi („toate bunurile mele”) — fiți specific</li>
+                            <li>Păstrați o copie înregistrată la notar și una într-un loc sigur</li>
+                            <li>Consultați notarul înainte de redactare pentru a evita nulități</li>
+                        </ul>
+                        <p className="text-gray-300 mt-4">La Biroul Notarial Roșu Elisabeta, vă sprijinim cu respect și discreție în luarea acestor decizii importante.</p>
+                    </section>
+
+                    <p className="text-center text-gray-300 italic mt-12 text-lg">
+                        Un testament clar redactat în fața notarului este cea mai bună garanție că dorințele tale vor fi respectate.
+                    </p>
                 </div>
-                <p className="note">* Estimarea este informativă. Costul final se stabilește în funcție de conținutul efectiv al testamentului.</p>
-            </section>
-
-            <section className="testamente-section">
-                <h2>Recomandări Importante</h2>
-                <ul>
-                    <li>Testamentul trebuie actualizat dacă apar schimbări în patrimoniu sau în situația familială</li>
-                    <li>Este recomandat să lăsați o copie înregistrată la notar și una într-un loc sigur</li>
-                    <li>Evitați formulele vagi și redactările ambigue</li>
-                    <li>Apelați întotdeauna la un notar pentru a garanta validitatea și eficiența actului</li>
-                </ul>
-                <p>
-                    La biroul nostru, veți primi asistență completă în redactarea și autentificarea testamentului,
-                    respectând toate cerințele legale și asigurând protecția dorințelor dumneavoastră.
-                </p>
-            </section>
+            </div>
         </div>
     );
 }
