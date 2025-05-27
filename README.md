@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Birou Notarial Roșu
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the official repository for **Birou Notarial Roșu**.
+
+## Overview
+
+This project is a web application for Birou Notarial Roșu, designed to provide information about our notary services, contact details, and facilitate communication with clients.
+
+## About the Site
+
+The Birou Notarial Roșu website serves as a digital gateway for clients seeking notarial services. The site is designed with user experience in mind, offering clear navigation and accessible information. Visitors can learn about the range of notarial services provided, including document authentication, legal consultations, and assistance with contracts or declarations.
+
+The site features a modern, responsive layout that adapts seamlessly to desktops, tablets, and mobile devices. A dedicated contact form allows clients to easily reach out for appointments or inquiries, streamlining communication and improving service efficiency. The content is available in Romanian, ensuring accessibility for our local clientele.
+
+Security and privacy are prioritized, with all client communications handled securely. The site is regularly updated to reflect the latest legal requirements and service offerings.
+
+## Features
+
+- Information about our notary services
+- Contact form for inquiries
+- Responsive design for all devices
+- Easy navigation
+
+## Getting Started
+
+To run the project locally:
+
+1. **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+2. **Start the development server:**
+    ```bash
+    npm start
+    ```
+    The app will be available at [http://localhost:3000](http://localhost:3000).
 
 ## Available Scripts
 
-In the project directory, you can run:
+- `npm start` – Runs the app in development mode.
+- `npm test` – Launches the test runner.
+- `npm run build` – Builds the app for production.
+- `npm run eject` – Ejects the app for advanced configuration.
 
-### `npm start`
+## Deployment
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To build the app for production, run:
+```bash
+npm run build
+```
+The optimized files will be in the `build` folder.
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [React documentation](https://reactjs.org/)
+- [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
 
-### Code Splitting
+This project is licensed under the MIT License.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+For any questions or support, please contact us through the information provided on our website.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
