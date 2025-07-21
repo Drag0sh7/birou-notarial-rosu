@@ -94,12 +94,22 @@ export default function ProfilNotarial() {
                     <div style={descStyle}>
                         <p>
                             Sunt Roșu Elisabeta, notar public în București, și îmi desfășor activitatea cu seriozitate,
-                            responsabilitate și respect față de fiecare persoană care îmi trece pragul.
+                            responsabilitate și respect față de fiecare persoană care îmi trece pragul.Înainte de a deveni notar, mi-am desfășurat
+                            în mare parte activitatea în magistratură, fiind judecător la toate gradele de jurisdicție: judecătorie, tribunal, curte de apel și
+                            Înalta Curte de Casație și Justiție (Ocupând atât funcții de execuție în cadrul acestor instanțe, cât și funcții de conducere,
+                            respectiv președinte de secție, vicepreședinte, Președintele Curții de Apel București, purtător de cuvânt al Înaltei Curți de Casație și Justiție.), precum și timp de aproximativ doi ani în avocatură.
+                        </p>
+                        <p>
+                            Toată această experiență din magistratura contencioasă o valorific astăzi în magistratura grațioasă specifică
+                            activității notariale, completând toate acestea cu activitatea didactică de lector universitar la Universitatea Creștină
+                            „Dimitrie Cantemir” – Facultatea de Științe Juridice și Administrative.
                         </p>
                         <p>
                             În decursul carierei mele am autentificat sute de acte, am asistat clienți în tranzacții imobiliare,
                             am redactat testamente și procuri, am gestionat succesiuni și partaje, fiind mereu atentă la detalii
-                            și la respectarea cadrului legal.
+                            și la respectarea cadrului legal, dar, mai ales, îmi ghidez activitatea având în vedere nevoia profundă a
+                            fiecărui client de încredere, empatie și înțelegere a necesității și a importanței vitale a încheierii
+                            fiecărui act notarial.
                         </p>
                         <p>
                             Cred cu tărie că profesia de notar presupune nu doar cunoștințe juridice solide, ci și empatie,
@@ -107,7 +117,7 @@ export default function ProfilNotarial() {
                             confidențialitate și profesionalism.
                         </p>
                         <p>
-                            Indiferent dacă reprezentați o persoană fizică sau o companie, veți găsi la mine soluții legale sigure,
+                            Indiferent dacă reprezentați o persoană fizică sau o persoana juridică, veți găsi la mine soluții legale sigure,
                             clare și adaptate situației dumneavoastră. Mă mândresc cu relația de încredere pe care o construiesc cu
                             fiecare client și cu promptitudinea serviciilor oferite.
                         </p>

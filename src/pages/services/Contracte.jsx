@@ -2,12 +2,27 @@ import React, { useState } from 'react';
 
 export default function Contracte() {
     const [valoare, setValoare] = useState('');
+
     const calcul = (v) => {
         const x = parseFloat(v);
         if (!x || x <= 0) return '-';
-        if (x <= 15000) return `${Math.max(0.022 * x, 250).toFixed(2)} RON`;
-        if (x <= 60000) return `${(330 + 0.015 * (x - 15000)).toFixed(2)} RON`;
-        return `${(1005 + 0.01 * (x - 60000)).toFixed(2)} RON`;
+        let rez;
+        if (x <= 20000) {
+            rez = Math.max(0.022 * x, 230);
+        } else if (x <= 35000) {
+            rez = 440 + 0.019 * (x - 20001);
+        } else if (x <= 65000) {
+            rez = 725 + 0.016 * (x - 35001);
+        } else if (x <= 100000) {
+            rez = 1205 + 0.015 * (x - 65001);
+        } else if (x <= 200000) {
+            rez = 1705 + 0.011 * (x - 100001);
+        } else if (x <= 600000) {
+            rez = 2805 + 0.009 * (x - 200001);
+        } else {
+            rez = 6405 + 0.006 * (x - 600001);
+        }
+        return `${rez.toFixed(2)} RON`;
     };
 
     return (
@@ -30,7 +45,7 @@ export default function Contracte() {
                     <section className="mb-12">
                         <h2 className="text-3xl font-semibold text-emerald-300 mb-4">🔹 Tipuri de Contracte</h2>
                         <ul className="list-disc list-inside space-y-3 text-lg text-gray-200">
-                            <li><strong>Vânzare-cumpărare:</strong> necesar pentru vânzarea imobilelor.</li>
+                            <li><strong>Vânzare:</strong> necesar pentru vânzarea imobilelor.</li>
                             <li><strong>Donație:</strong> transfer gratuit – cu protecție moștenitori rezervatari.</li>
                             <li><strong>Întreținere:</strong> întreținere în schimbul unui bun prezent.</li>
                             <li><strong>Comodat:</strong> împrumut gratuit de folosință.</li>
@@ -53,10 +68,10 @@ export default function Contracte() {
                     <section className="mb-12">
                         <h2 className="text-3xl font-semibold text-emerald-300 mb-4">💰 Costuri și Taxe 2025</h2>
                         <ul className="list-disc list-inside space-y-3 text-lg text-gray-200">
-                            <li><strong>Vânzare-cumpărare:</strong> 0.44% – 1% din valoarea bunului</li>
-                            <li><strong>Donație:</strong> impozit 3% dacă nu sunt rude apropiate</li>
+                            <li><strong>Vânzare:</strong> între 0.6% și 2.2% în funcție de valoare; impozit de 1% dacă bunul a fost dobândit cu mai mult de 3 ani în urmă sau 3% dacă a fost dobândit cu mai puțin de 3 ani în urmă</li>
+                            <li><strong>Donație:</strong> impozit de 1% dacă bunul a fost dobândit cu mai mult de 3 ani în urmă sau 3% dacă a fost dobândit cu mai puțin de 3 ani în urmă (dacă nu sunt rude de până la gradul al II-lea inclusiv, caz în care donația nu se impozitează).</li>
                             <li><strong>Ipotecă:</strong> în funcție de valoarea creditului</li>
-                            <li>Taxe suplimentare: intabulare (0.15–0.5%), TVA, impozit (1–3%)</li>
+                            <li>Taxe suplimentare: intabulare (0.15–0.5%), TVA</li>
                         </ul>
                     </section>
 
@@ -73,7 +88,9 @@ export default function Contracte() {
                             <p className="text-lg text-white">
                                 Onorariu estimat: <span className="text-emerald-300 font-semibold">{calcul(valoare)}</span>
                             </p>
-                            <p className="text-sm text-gray-400 mt-2">* Valoare orientativă. Prețul final variază în funcție de act.</p>
+                            <p className="text-sm text-gray-400 mt-2">
+                                * Valoare orientativă conform Ordin 177/C/2024. Prețul final se stabilește de notar în funcție de act.
+                            </p>
                         </div>
                     </section>
 

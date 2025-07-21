@@ -42,7 +42,7 @@ export default function Testamente() {
                             <li>Capacitate deplină de exercițiu (vârstă + discernământ)</li>
                             <li>Voința exprimată liber, fără constrângere</li>
                             <li>Respectarea formei cerute de lege</li>
-                            <li>Respectarea rezervelor succesorale (moștenitori direcți nu pot fi dezmoșteniți complet)</li>
+                            <li>Respectarea rezervelor succesorale (testatorul va fi informat cu privire la modul în care operează rezerva succesorală în legislația românească.)</li>
                         </ul>
                         <p className="text-gray-300 mt-4">Notarul are obligația de a verifica atât capacitatea, cât și legalitatea dispozițiilor.</p>
                     </section>
@@ -50,7 +50,7 @@ export default function Testamente() {
                     <section className="mb-12">
                         <h2 className="text-3xl font-semibold text-purple-300 mb-4">💰 Costuri și Onorarii</h2>
                         <ul className="list-disc list-inside space-y-3 text-lg text-gray-200">
-                            <li><strong>Testament simplu:</strong> 150–300 lei</li>
+                            <li><strong>Testament simplu:</strong> 150–900 lei</li>
                             <li><strong>Testament patrimonial:</strong> 0.4% – 0.8% din valoarea estimată</li>
                             <li><strong>Consultanță separată:</strong> 50–100 lei</li>
                         </ul>

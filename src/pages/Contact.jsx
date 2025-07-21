@@ -61,7 +61,7 @@ export default function Contact() {
                             value={form.name}
                             onChange={handleChange}
                             required
-                            placeholder="Ion Popescu"
+                            placeholder="Nicolae Iorga"
                             className="w-full rounded-lg px-4 py-3 bg-white/25 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                         />
                     </div>

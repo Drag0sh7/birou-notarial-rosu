@@ -2,16 +2,29 @@ import React, { useState } from 'react';
 
 export default function Succesiuni() {
     const [valoare, setValoare] = useState('');
+
     const calcul = (v) => {
         const x = parseFloat(v);
         if (!x || x <= 0) return '-';
-        return `${(0.006 * x + 150).toFixed(2)} RON`;
+        let rez = 0;
+
+        if (x <= 20000) {
+            rez = Math.max(0.027 * x, 240);
+        } else if (x <= 35000) {
+            rez = 540 + 0.019 * (x - 20001);
+        } else if (x <= 65000) {
+            rez = 725 + 0.016 * (x - 35001);
+        } else {
+            rez = 1205 + 0.0085 * (x - 65001);
+        }
+
+        return `${rez.toFixed(2)} RON`;
     };
 
     return (
         <div
             className="min-h-screen bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: 'url("/images/062329ae-4fc8-4410-b6a4-4d61249b7eb3.png")' }}
+            style={{ backgroundImage: 'url(\"/images/062329ae-4fc8-4410-b6a4-4d61249b7eb3.png\")' }}
         >
             <div className="max-w-5xl mx-auto px-6 py-24 md:py-36">
                 <div className="bg-black bg-opacity-75 backdrop-blur-lg rounded-3xl p-8 md:p-14 text-white shadow-2xl">
@@ -20,8 +33,7 @@ export default function Succesiuni() {
                     </h1>
 
                     <p className="text-xl leading-8 text-gray-100 mb-10">
-                        Succesiunea notarială este cea mai rapidă și eficientă cale de transmitere a patrimoniului unei persoane
-                        decedate către moștenitori. Se evită litigiile și cheltuielile judiciare, iar actele dobândite au valoare executorie.
+                        Succesiunea notarială este cea mai rapidă și eficientă cale de transmitere a patrimoniului unei persoane decedate către moștenitori. Se evită litigiile și cheltuielile judiciare, iar actele dobândite au valoare executorie.
                     </p>
 
                     <section className="mb-12">
@@ -34,7 +46,7 @@ export default function Succesiuni() {
                             <li>Declarații de acceptare / renunțare la moștenire</li>
                             <li>Eliberarea certificatului de moștenitor legal sau testamentar</li>
                         </ul>
-                        <p className="text-gray-300 mt-4">Termen estimat: între 5–10 zile lucrătoare dacă documentele sunt complete.</p>
+                        <p className="text-gray-300 mt-4">Termen estimat: între 5–60 zile lucrătoare dacă documentele sunt complete.</p>
                     </section>
 
                     <section className="mb-12">
@@ -51,11 +63,12 @@ export default function Succesiuni() {
                         <h2 className="text-3xl font-semibold text-yellow-300 mb-4">💰 Taxe și Onorarii Notariale</h2>
                         <ul className="list-disc list-inside space-y-3 text-lg text-gray-200">
                             <li><strong>Deschidere succesiune:</strong> de la 120 lei</li>
-                            <li><strong>Onorariu calcul masă succesorală:</strong> ~0.5%–1% din valoare</li>
-                            <li><strong>Certificat moștenitor:</strong> 150–400 lei</li>
+                            <li><strong>Onorariu masă succesorală:</strong> conform grilei oficiale graduale (2.7% până la 20.000 RON, apoi tranșe)</li>
                             <li>Alte taxe: evaluare imobile, declarații suplimentare, partaj ulterior (dacă este cazul)</li>
+                            <li>Dacă succesiunea se dezbate după mai mult de 2 ani de la data decesului, se percepe un impozit de 1% din valoarea bunurilor
+                                imobile din masa succesorală.</li>
                         </ul>
-                        <p className="text-gray-300 mt-4">Tarifele sunt reglementate prin Ordinul MJ 2024 și pot varia ușor în funcție de caz.</p>
+                        <p className="text-gray-300 mt-4">Tarifele sunt reglementate prin Normele MJ 2024 și pot varia ușor în funcție de caz.</p>
                     </section>
 
                     <section className="mb-12">

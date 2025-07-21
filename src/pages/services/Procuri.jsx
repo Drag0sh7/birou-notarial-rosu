@@ -45,7 +45,7 @@ export default function Procuri() {
                     <section className="mb-12">
                         <h2 className="text-3xl font-semibold text-cyan-300 mb-4">📝 Ce Trebuie Să Pregătiți</h2>
                         <ul className="list-disc list-inside space-y-3 text-lg text-gray-200">
-                            <li>Buletin valabil (mandant și, dacă e prezent, mandatarul)</li>
+                            <li>Carte de identitate valabilă (mandant și, dacă e prezent, mandatarul)</li>
                             <li>Datele exacte ale persoanei împuternicite</li>
                             <li>Scopul concret al procurii (acte, instituții, bunuri)</li>
                             <li>Dovezi: acte de proprietate, CNP beneficiar, format tip (dacă e cerut)</li>
@@ -56,32 +56,9 @@ export default function Procuri() {
                     <section className="mb-12">
                         <h2 className="text-3xl font-semibold text-cyan-300 mb-4">💰 Costuri și Tarife</h2>
                         <ul className="list-disc list-inside space-y-3 text-lg text-gray-200">
-                            <li><strong>Procura simplă:</strong> 60 – 100 lei</li>
-                            <li><strong>Procura auto:</strong> 80 – 120 lei</li>
-                            <li><strong>Procura generală:</strong> 150 – 300 lei</li>
-                            <li><strong>Procura internațională + traducere:</strong> 250 – 500 lei</li>
+                            <li><strong>Procura generală sau specială:</strong> 100 – 300 lei</li>
                         </ul>
                         <p className="text-gray-300 mt-4">În funcție de traducere, apostilare sau legalizare, costul poate crește.</p>
-                    </section>
-
-                    <section className="mb-12">
-                        <h2 className="text-3xl font-semibold text-cyan-300 mb-4">🧮 Calculator Estimativ Procura</h2>
-                        <div className="bg-gray-900 bg-opacity-60 rounded-xl p-6">
-                            <select
-                                className="w-full p-4 mb-4 text-black text-lg rounded-md focus:outline-none focus:ring-2 focus:ring-cyan-300"
-                                onChange={(e) => setCost(calculeaza(e.target.value))}
-                            >
-                                <option value="">Alege tipul procurii</option>
-                                <option value="simpla">Procura simplă</option>
-                                <option value="auto">Procura auto</option>
-                                <option value="generala">Procura generală</option>
-                                <option value="str">Procura pentru străinătate</option>
-                            </select>
-                            <p className="text-lg text-white">
-                                Estimare onorariu: <span className="text-cyan-300 font-semibold">{cost}</span>
-                            </p>
-                            <p className="text-sm text-gray-400 mt-2">* Prețul poate varia în funcție de conținut și traducere.</p>
-                        </div>
                     </section>
 
                     <section className="mb-4">

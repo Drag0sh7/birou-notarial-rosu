@@ -5,9 +5,8 @@ export default function Divort() {
 
     const calculeazaCost = (tip) => {
         switch (tip) {
-            case 'fara': return '700 lei';
-            case 'cu': return '1000 lei';
-            case 'procură': return '250 lei';
+            case 'fara': return '750 lei';
+            case 'cu': return '1200 lei';
             default: return '-';
         }
     };
@@ -32,11 +31,11 @@ export default function Divort() {
                         <h2 className="text-3xl font-semibold text-pink-300 mb-4">📄 Tipuri de Divorț Notarial</h2>
                         <ul className="list-disc list-inside space-y-3 text-lg text-gray-200">
                             <li><strong>Fără copii minori:</strong> finalizare rapidă (~30 zile)</li>
-                            <li><strong>Cu copii minori:</strong> necesită acord privind custodia, pensia, vizita</li>
+                            <li><strong>Cu copii minori:</strong> necesită acord privind autoritatea părintească, pensia, vizita</li>
                             <li><strong>Români în străinătate:</strong> cu prezență fizică sau procură specială</li>
                             <li><strong>Cu partaj voluntar:</strong> se poate include împărțirea bunurilor</li>
                         </ul>
-                        <p className="text-gray-300 mt-4">✳️ Notarul poate refuza divorțul dacă lipsește acordul sau unul dintre soți este sub interdicție.</p>
+                        <p className="text-gray-300 mt-4">✳️ Notarul poate refuza divorțul dacă lipsește acordul sau unul dintre soți este sub tutelă sau consiliere specială.</p>
                     </section>
 
                     <section className="mb-12">
@@ -45,7 +44,7 @@ export default function Divort() {
                             <li>Cerere de divorț semnată de ambii soți</li>
                             <li>Buletine/CI + certificatul de căsătorie</li>
                             <li>Certificatele de naștere ale copiilor minori (dacă există)</li>
-                            <li>Declarații privind custodia și pensia alimentară</li>
+                            <li>Declarații privind autoritatea părintească și contribuția la creșterea si educarea copiilor</li>
                             <li>Procură specială notarială (dacă unul dintre soți nu se prezintă)</li>
                         </ul>
                     </section>
@@ -60,7 +59,6 @@ export default function Divort() {
                                 <option value="">Alege tipul de divorț</option>
                                 <option value="fara">Fără copii minori</option>
                                 <option value="cu">Cu copii minori</option>
-                                <option value="procură">Prin procură specială</option>
                             </select>
                             <p className="text-lg text-white">
                                 Estimare onorariu: <span className="text-pink-300 font-semibold">{cost}</span>
@@ -75,7 +73,7 @@ export default function Divort() {
                             <li>Divorțul notarial este posibil doar cu <strong>acord complet</strong> între soți</li>
                             <li>Consultați un avocat dacă sunt conflicte legate de copii sau bunuri</li>
                             <li>Notarul nu poate decide asupra aspectelor contestate</li>
-                            <li>Includeți în cerere toate detaliile despre custodie, domiciliu și pensie alimentară</li>
+                            <li>Includeți în cerere toate detaliile despre autoritatea părintească, domiciliu și pensie alimentară</li>
                         </ul>
                         <p className="text-gray-300 mt-4">La biroul nostru veți avea parte de confidențialitate, neutralitate și consiliere profesionistă.</p>
                     </section>

@@ -105,7 +105,7 @@ export default function Footer() {
               mt={1}
             >
               <EmailIcon sx={{ color: '#FFD700' }} />
-              <Typography variant="body2">elisabeta.rosu12@gmail.com</Typography>
+              <Typography variant="body2">rosu.elisabeta@enp.ro</Typography>
             </Box>
           </Grid>
 
