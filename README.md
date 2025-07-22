@@ -1,52 +1,89 @@
-## Prerequisites
+# 🏛️ Birou Notarial Roșu Elisabeta
 
-Before running the website locally, ensure you have the following installed:
-    
-- [Node.js](https://nodejs.org/) (version 14 or higher recommended)
-- [npm](https://www.npmjs.com/) (comes with Node.js)
+Official website for the Roșu Elisabeta Notary Office in Bucharest – built with care, professionalism, and attention to detail.  
+Includes full legal service descriptions, professional background, contact form, and interactive tax calculators.
 
-## Frameworks and Libraries Used
+---
 
-This project is built with:
+## 🌐 Technologies Used
 
-- [React](https://reactjs.org/) – JavaScript library for building user interfaces
-- [Create React App](https://create-react-app.dev/) – Toolchain for React apps
-- [MUI (Material-UI)](https://mui.com/) – React UI framework for material design components (v5.x)
-- [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework for rapid UI development (v3.x)
+- ⚛️ React (Vite)
+- 🎨 Tailwind CSS
+- 💾 PHP (for contact form backend)
+- 📦 Git + GitHub for version control
+- 🖼️ Optimized images for performance and elegant design
 
-## Getting Started
+---
 
-To run the project locally:
+## 📄 Main Pages
 
-1. **Clone the repository:**
-    ```bash
-    git clone https://github.com/your-username/birou-notarial-rosu.git
-    cd birou-notarial-rosu
-    ```
+- `Home` – General presentation + custom background image  
+- `Profile` – Legal and professional experience of the notary  
+- `Services` – Complete list of notarial services  
+- Dedicated service pages:  
+  - `Divorce`  
+  - `Inheritance`  
+  - `Contracts`  
+  - `Wills`  
+  - `Powers of Attorney`  
+  - `Declarations`  
+- `Investor Advisory` – Includes advanced interactive tax calculator  
+- `Contact` – Fully functional email form (via PHP)
 
-2. **Install dependencies:**
-    ```bash
-    npm install
-    ```
-    This will install all required packages, including React.
+---
 
-3. **Install MUI (Material-UI):**
-    ```bash
-    npm install @mui/material@5 @emotion/react @emotion/styled
-    ```
-    This installs MUI v5 and its peer dependencies.
+## 🧮 Integrated Calculators
 
-4. **Install Tailwind CSS:**
-    ```bash
-    npm install -D tailwindcss@3 postcss autoprefixer
-    npx tailwindcss init -p
-    ```
-    Then, configure your `tailwind.config.js` and add the Tailwind directives to your CSS as described in the [Tailwind CSS documentation](https://tailwindcss.com/docs/guides/create-react-app).
+- **Property Sale Notary Fee Calculator**  
+  Based on the official 2024 Romanian notarial fee grid (tiered system)
+- **Inheritance Fee Calculator**  
+  Uses the latest tier-based rules (2.7%, 1.9%, 1.6%, 0.85%)
+- **Land Registration (Intabulare) Fee** – 0.25%
+- **Other Acts Fee** – 0.3% of contract value (e.g. donation, maintenance)
 
-5. **Start the development server:**
-    ```bash
-    npm start
-    ```
-    The app will be available at [http://localhost:3000](http://localhost:3000).
+---
 
-If you make changes to the code or styles, the development server will automatically reload the app.
+## 🚀 Running the Project Locally
+
+```bash
+git clone https://github.com/Drag0sh7/birou-notarial-rosu.git
+cd birou-notarial-rosu
+npm install
+npm run dev
+```
+
+### 🔧 Build for production:
+
+```bash
+npm run build
+```
+
+---
+
+## 📬 Contact Form Setup
+
+- `contact.php` processes submissions using PHP  
+- Email is sent via SMTP (ENP or Gmail)  
+- Configure SMTP credentials directly in `contact.php`
+
+---
+
+## 📸 Images
+
+- All images are stored in `/public/images/`  
+- Includes profile and office photos, compressed for web
+
+---
+
+## 📍 Status
+
+**✅ LIVE & PRODUCTION READY**  
+Optimized for mobile and desktop, ready for notarial use.
+
+---
+
+## 💼 Author
+
+**Developed by Dragos**  
+For: *Biroul Notarial Roșu Elisabeta*  
+Bucharest, Romania – 2025
