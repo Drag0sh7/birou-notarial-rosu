@@ -12,7 +12,6 @@ export default function Home() {
         if (footer) footer.scrollIntoView({ behavior: 'smooth' });
     };
 
-    /* --- date --- */
     const despreNoi = [
         { title: 'Spațiu de primire clienți', desc: 'Un mediu elegant și confortabil pentru discuții și consultanță legală personalizată.', image: img3 },
         { title: 'Biroul Notarului Public', desc: 'Locul unde sunt autentificate actele dumneavoastră, cu grijă și confidențialitate.', image: img9 },
@@ -25,7 +24,6 @@ export default function Home() {
         { title: 'Contracte și Procuri', desc: 'Autentificăm contracte, împrumuturi și procuri, garantând siguranța juridică.', image: signed },
     ];
 
-    /* --- card component --- */
     const Card = ({ item }) => (
         <div
             className="group w-full max-w-[500px] mx-auto sm:mx-0 rounded-xl overflow-hidden
@@ -46,7 +44,6 @@ export default function Home() {
         </div>
     );
 
-    /* --- grid renderer: ultimul card -> col-span-2 şi centrat DOAR între 640-767px --- */
     const Grid = (items) => (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {items.map((item, idx) => {
@@ -54,10 +51,7 @@ export default function Home() {
                 return (
                     <div
                         key={item.title}
-                        className={`
-              w-full flex
-              ${last ? 'sm:col-span-2 sm:justify-center md:col-span-1' : ''}
-            `}
+                        className={`w-full flex ${last ? 'sm:col-span-2 sm:justify-center md:col-span-1' : ''}`}
                     >
                         <Card item={item} />
                     </div>
@@ -66,32 +60,32 @@ export default function Home() {
         </div>
     );
 
-    /* --- JSX --- */
     return (
-        <div
-            className="text-white font-[Inter] min-h-screen bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(/images/home-backgr.png)` }}
-        >
-            {/* HERO -------------------------------------------------------- */}
-            <section className="flex items-center justify-center min-h-[4vh] pt-32 px-4">
-                <div className="bg-white/10 rounded-3xl shadow-xl border border-white/20 p-16 text-center max-w-4xl w-full">
-                    <h1 className="text-5xl md:text-6xl font-[Merriweather] font-bold mb-5 drop-shadow-xl leading-tight">
+        <div className="text-white font-[Inter] overflow-x-hidden">
+
+            {/* HERO CU FUNDAL FIX */}
+            <section
+                className="relative flex items-center justify-center h-screen px-4 bg-cover bg-center"
+                style={{ backgroundImage: `url(/images/home-backgr.png)` }}
+            >
+                <div className="bg-white/10 rounded-3xl shadow-xl border border-white/20 p-10 md:p-16 text-center max-w-4xl w-full z-10">
+                    <h1 className="text-4xl md:text-6xl font-[Merriweather] font-bold mb-5 drop-shadow-xl leading-tight">
                         Biroul Notarial Roșu Elisabeta
                     </h1>
-                    <p className="text-xl md:text-2xl mb-8 text-white/90 font-light drop-shadow-md leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-lg md:text-2xl mb-8 text-white/90 font-light drop-shadow-md leading-relaxed max-w-2xl mx-auto">
                         Profesionalism, promptitudine și confidențialitate în servicii notariale.
                     </p>
                     <button
                         onClick={scrollToFooter}
                         className="bg-blue-900 hover:bg-blue-800 text-white font-semibold text-lg py-3 px-8 rounded-full
-                       shadow-md transition-transform duration-300 hover:shadow-lg hover:-translate-y-1"
+                        shadow-md transition-transform duration-300 hover:shadow-lg hover:-translate-y-1"
                     >
                         Contactați-ne
                     </button>
                 </div>
             </section>
 
-            {/* DESPRE NOI -------------------------------------------------- */}
+            {/* DESPRE NOI */}
             <section className="max-w-7xl mx-auto py-24 px-4">
                 <div className="bg-white/10 rounded-3xl shadow-xl border border-white/20 p-12">
                     <h2 className="text-5xl md:text-6xl font-[Merriweather] font-bold text-center mb-6 drop-shadow-md">
@@ -105,7 +99,7 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* SERVICII ---------------------------------------------------- */}
+            {/* SERVICII */}
             <section className="max-w-7xl mx-auto pb-28 px-4">
                 <div className="bg-white/10 rounded-3xl shadow-xl border border-white/20 p-12">
                     <h2 className="text-4xl md:text-5xl font-[Merriweather] font-bold text-center mb-6 drop-shadow-md">

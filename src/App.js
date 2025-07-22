@@ -1,4 +1,3 @@
-// ✅ Final App.js (ensures full-page layout + no blocking container)
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import CookieConsent from 'react-cookie-consent';
@@ -6,6 +5,7 @@ import PoliticaCookie from './PoliticaCookie';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 import Home from './pages/Home';
 import Contact from './pages/Contact';
@@ -40,15 +40,26 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <div style={{
-          minHeight: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          backgroundImage: `linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,0.9)), url(${require('./assets/office-bg.jpg')})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
-        }}>
+        <ScrollToTop />
+
+        {/* FUNDAL FIX - DOAR 100vh */}
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100vh',
+            backgroundImage: `linear-gradient(to bottom, rgba(10,10,10,0.7), rgba(10,10,10,0.9)), url(${require('./assets/office-bg.jpg')})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            zIndex: -1,
+          }}
+        />
+
+        {/* CONTINUT */}
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
           <Navbar />
           <main style={{ flex: '1 0 auto' }}>
             <Routes>
@@ -108,5 +119,6 @@ function App() {
     </ThemeProvider>
   );
 }
+
 
 export default App;

@@ -10,7 +10,7 @@ export default function Contact() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch('http://localhost/notariat/contact.php', {
+            const res = await fetch('https://notariatrosuelisabeta.ro/contact.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(form),
@@ -50,7 +50,6 @@ export default function Contact() {
                 )}
 
                 <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* Nume */}
                     <div>
                         <label className="block text-sm md:text-base font-semibold mb-1">
                             Nume complet
@@ -66,7 +65,6 @@ export default function Contact() {
                         />
                     </div>
 
-                    {/* Email */}
                     <div>
                         <label className="block text-sm md:text-base font-semibold mb-1">
                             Email
@@ -82,7 +80,6 @@ export default function Contact() {
                         />
                     </div>
 
-                    {/* Mesaj */}
                     <div>
                         <label className="block text-sm md:text-base font-semibold mb-1">
                             Mesaj
